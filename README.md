@@ -1,31 +1,50 @@
-# Speculator 
+# Speculator
 
-# Theory of Spectrum
-* Fourier
-* DTFT
-* DFT
-* FFT
-* Short Time FFT
-* Convolution
-* Correlation
-* Features
-* Statistics
-* Cross Synthesis
-* Morphing
-* Mutation
-* Mixing
-* Blending
-* Digital Filters
-* Autoencoder Theory
-* Impulse Response
-* Freuqnecy Response
-* Transfer Functions
-* Estimate
-* Deconvolution
-* Genetic Circuit BReaker
-* Symbolic Circuit
-* No circuit engineering
-* Spectral Wave Digital Filter Reality
-* Machine Learn Impulse
-* Machine Learn Transfer
-* Spectral Encoder
+# Theories
+* Alchemist
+* Inquisitor
+* Cowboy
+* Audio-Sex-Prison
+* Machine-Learning-Experiments
+* CAudio
+* AudioDSP
+* Formantula
+* Impulsive
+* Mutagen
+* PhaseCoder
+* Cybernetic
+* System-Down
+* Convolver
+* Correlator
+* Adaptor
+* Dynamics
+* Evolver
+* Encoder-Decoder
+* Loop
+* MindFlayer
+* Assassin
+* WaveMind
+* Channelizer
+* Vaporizer
+* Illuminator
+* Armanaut
+* Eigenaut
+* Viper
+* Analogic-Circuits
+
+# Super Theory
+* SuperFFT
+* SuperMatrix
+
+# Deep Learning
+* Matrix Theory
+
+# Super Deep Learning
+* Tensors
+* String Universe
+* Wave Guides
+* WaveMind 
+* Wave Digitals
+* Demiurge
+* Cybernetic Analyst
+* Adaptive Theorist
