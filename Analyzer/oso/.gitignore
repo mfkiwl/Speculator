@@ -1,0 +1,4 @@
+*.o
+oso
+config.mk
+*.exe

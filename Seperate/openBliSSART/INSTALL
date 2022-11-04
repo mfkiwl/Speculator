@@ -1,0 +1,749 @@
+openBliSSART installation instructions
+======================================
+
+
+Felix Weninger <weninger@tum.de>
+Alexander Lehmann <lehmanna@in.tum.de>
+
+
+These instructions cover the compilation and installation of openBliSSART on
+various platforms. 
+
+For the impatient Linux user, we have provided a sequence of commands that
+install the system provided that the required libraries are installed.
+
+For compilation under Unix-like systems, we provide a configure script (GNU
+autotools). The Unix build process has been tested on various operating systems,
+including different versions of openSUSE, Ubuntu, and Mac OS X.
+
+For Microsoft Windows, we prepared Visual Studio 2008 solution files. As the
+project file format and the build process change with each version, we
+currently do not support other versions of Visual Studio. We will probably add
+support for VS 2010 in the future. The Windows build process has been tested
+under Windows XP and Windows 7.
+
+Prior to compiling openBliSSART, make sure you have the required libraries
+installed (Section 1).
+
+Section 2 describes the compilation process under Linux and Windows.
+
+Section 3 covers the integration of Matlab BLAS libraries for enhanced
+performance (optional, and experimental).
+
+Finally, Section 4 describes some common pitfalls, and how to avoid them.
+In case of installation problems or application crashes, please consult this
+section.
+
+
+0. Installation for the Impatient Linux User
+
+Given that you have recent versions of FFTW3, SDL, SDL_sound, Poco, Qt, and
+ATLAS (and the corresponding "developer" packages, or whatever your
+distribution calls it) installed in standard locations, the following commands
+are sufficient for installation ($ indicates the shell prompt):
+
+$ mkdir -p ~/src
+$ tar xzf openBliSSART-1.2.tar.gz -C ~/src
+$ cd ~/src/openBliSSART-1.2
+$ ./bootstrap.sh          # usually not necessary if "configure" already exists
+$ ./configure --prefix=${HOME}/blissart
+$ make
+$ make install
+
+Ensure that your linker finds the openBliSSART libraries. On many 
+distributions (e.g. Ubuntu and openSUSE), the following works: 
+
+$ sudo sh -c "echo ${HOME}/blissart/lib > /etc/ld.so.conf.d/blissart.conf"
+$ sudo ldconfig
+
+If not, check Section 2.1.2 for details on the linker configuration.
+
+You should now be able to run the browser GUI:
+
+$ ~/blissart/bin/browser
+
+If not, please go through the detailed instructions below.
+
+
+1. Dependencies
+
+openBliSSART depends on several open source libraries. These include:
+- FFTW3 (Fastest Fourier Transform in the West) 
+- SDL (>= 1.2.12) and SDL_sound for support of audio input from various formats
+  (WAV, OGG, FLAC, etc., depending on the capabilities of the library)
+- Poco (Portable Components) Complete Edition >= 1.3.6 for a general-purpose
+  application framework and database access (bundled with SQLite)
+- Qt (>= 4.4.3) for the browser GUI
+ 
+Furthermore, for fast operation, installation of the ATLAS (Automatically Tuned
+Linear Algebra Software) library is highly recommended, but is in fact
+optional. 
+
+The following section will provide hints on how to install these libraries on
+popular Linux distributions (Section 1.1), as well as Microsoft Windows
+(Section 1.2). If you want to compile all libraries from source, check Section
+1.3.
+
+
+1.1 Instructions for specific Linux distributions
+
+
+1.1.1 Ubuntu 12.04
+
+Installation under 12.04 is very easy, as this distribution has pre-built 
+packages for all libraries required by openBliSSART.
+
+Make sure that the following packages are installed prior to the compilation of
+openBliSSART:
+
+g++
+autoconf
+libtool
+libpoco-dev
+libfftw3-dev
+libsdl-sound1.2-dev
+libatlas-base-dev
+qt4-dev-tools
+
+Login as superuser (root), and use "apt-get install <packagename>" to install
+these packages.
+
+
+1.1.2 Ubuntu 8.10
+
+Same as above, but the Poco package coming with this distribution is too old.
+Install all of the packages listed above, except libpoco-dev. Then, proceed as
+indicated in Section 1.3.1.1 to compile and install a recent Poco version 
+(>= 1.3.6).
+
+
+1.1.3 openSUSE (>= 11.1)
+
+The following packages will provide the libraries required to compile and run
+openBliSSART, except Poco which you will have to compile from source (see
+Section 1.3.1.1):
+- fftw3
+- fftw3-devel
+- libqt4
+- libqt4-devel
+- libSDL
+- libSDL-devel
+- libSDL_sound-1_0-1
+- libSDL_sound-devel
+- libatlas3 
+- libatlas3-devel
+
+You might also need the following GNU development tools packages in case you
+have not already installed them during installation of the SuSE distribution on
+your system:
+- make
+- autoconf
+- automake
+- libtool
+
+The following instructions are specific to openSUSE 11.2. For openSUSE 11.1, the
+steps might be slightly different.
+
+A special note for users of openSUSE 11.0 32-bit: There have been problems
+reported with the libatlas3 version that comes with this distribution, causing
+program abort due to an illegal instruction on Pentium 4 systems. In this case
+you probably want to compile ATLAS yourself (see 
+http://math-atlas.sourceforge.net).
+
+To install the packages, start the software installation component of YaST
+(check your SuSE documentation if you are unsure about YaST). Make sure that
+"Options / Show -devel packages" is enabled, otherwise you will not be able to
+see the development packages required for the building process. 
+
+Furthermore, the ATLAS libraries are not included on the SuSE DVD, hence they
+must be obtained from the Web (via "Configuration" / "Search packages on the
+web". Alternatively, specify the "Education" repository which can be found
+under the URL:
+
+    http://download.opensuse.org/repositories/Education/openSUSE_11.2
+
+by selecting "Configuration / Repositories / Add / Specify URL".
+
+There might be a significant number of dependent packages which are
+automatically selected by YaST. They might also include the C++ compiler if it
+has not yet been installed.
+
+
+1.2 Microsoft Windows
+
+If you want to build the browser GUI, you need Qt for Windows, which you can
+obtain from http://qt.nokia.com/downloads (choose the LGPL license).  You have
+to download the open-source framework version for VS2008 (NOT the SDK), as the
+SDK seems to be incompatible with Visual Studio 2008. Anyway, check if the
+"lib" directory contains "*.lib" files, which Visual Studio needs for linking.
+
+Install Qt, and add the directory <Qt-install-dir>\bin to your PATH environment
+variable. This directory should contain the file qmake.exe. To set the PATH
+variable, open the dialog My Computer / Properties / Advanced / Environment
+variables.  Edit the PATH (or Path) variable, and append the directory,
+separated by a semicolon.
+
+Regarding the other libraries, obtaining them as binaries for Windows can be
+quite tedious, hence we provide a ZIP compressed archive that contains the
+Poco, FFTW3, ATLAS, SDL, and SDL_sound libraries (binaries, export files, and
+header files) to build and run openBliSSART:
+
+	http://github.com/downloads/openBliSSART/openBliSSART/blissart-3rdparty-win32.zip
+
+Unzip this file to a location like "C:\devel", so that you have the directories
+"C:\devel\lib", "C:\devel\bin", and "C:\devel\include". In most cases, this
+should be sufficient, and you can proceed with Section 1.2.3 "Setting
+environment variables" below.
+
+Only if for some reason you want to obtain the Windows binaries and header
+files for the openBliSSART dependencies by yourself, consult the following
+Sections (1.2.1 and 1.2.2).
+
+
+1.2.1 Obtain Windows binaries and header files
+
+Furthermore, binaries and header files for most of the required libraries can
+be obtained from their project homepages:
+- FFTW: http://www.fftw.org/install/windows.html
+- SDL: http://www.libsdl.org/download-1.2.php
+- SDL_sound: http://icculus.org/SDL_sound/downloads/sdl_sound_visualc_srcs.zip
+- ATLAS: http://www.netlib.org/atlas/archives/windows/ - select the version
+  that is most appropriate for your processor architecture. These versions are
+  old, but still work very well on any modern computer and OS.
+- Qt: http://qt.nokia.com/downloads
+
+Note that precompiled Windows binaries for ATLAS and SDL are currently only
+available in 32-bit. The Poco project currently does _not_ provide binaries for
+Windows, but Poco can be compiled very easily with Visual Studio (see Section
+1.3.1.2).
+
+Also note that the binaries provided by ATLAS are static libraries that are 
+to be handled like DLL export files (*.lib). In the archives, they may have the
+extension *.a, but they can be safely renamed to *.lib.
+
+
+1.2.2. Create directories for binaries and header files
+
+To facilitate configuration of the Visual Studio environment, it is recommended
+to create directories for the DLLs (*.dll), export files (*.lib), and header
+files (*.h) provided by these libraries, e.g.
+- C:\devel\bin for DLL files (*.dll),
+- C:\devel\lib for export files (*.lib), and
+- C:\devel\include for header files (*.h).  
+
+For FFTW, you have to create the *.lib files yourself. To this end, start the
+Visual Studio command line from the "Visual Studio Tools" folder in the Start
+menu, change to the directory where you extracted the FFTW ZIP file and issue
+the following command: 
+
+	lib /def:libfftw3-3.def
+
+Then, a file named "libbfftw3-3.lib" should be created which you should place
+in "C:\devel\lib" (or whatever you called this directory).
+
+Now copy the binaries and header from FFTW, SDL, SDL_sound (located in the
+visualc\win32bin and visualc\win32lib) and ATLAS to directories listed above.
+The SDL include files should all be placed in a directory "SDL" under the main
+include directory, e.g. "C:\devel\include\SDL".
+
+
+1.2.3 Setting environment variables
+
+Finally, you have to set some environment variables (assuming the above paths): 
+- add C:\devel\bin to the PATH variable: open the dialog My Computer /
+  Properties / Advanced / Environment variables. Edit the PATH (or Path)
+  variable, and append the directory, separated by a semicolon.
+- add C:\devel\bin on top of the "Executable directories" in Visual Studio
+  ("Tools" / "Options" / "Projects and Solutions" / "VC++ Directories") - this
+  is mainly needed for building the installer (see Section 2.2 below)
+- add C:\devel\lib to the "Library directories" in Visual Studio ("Tools" /
+  "Options" / "Projects and Solutions" / "VC++ Directories")
+- add C:\devel\include to the "Include directories" in Visual Studio ("Tools" /
+  "Options" / "Projects and Solutions" / "VC++ Directories")
+
+
+1.3 Compiling libraries from source
+
+Obtain the following source packages:
+- FFTW3 from http://www.fftw.org
+- SDL from http://www.libsdl.org
+- SDL_sound from http://icculus.org/SDL_sound/
+- Qt from http://qt.nokia.com/downloads
+- ATLAS from http://math-atlas.sourceforge.net/
+- Poco from http://www.pocoproject.org/download
+
+It is out of the scope of these installation instructions to provide detailed
+information about the configuration and compilation of all these packages,
+hence we restrict to some hints which might be useful for compiling Poco, as
+this library is currently not included e.g. in openSUSE.
+
+
+1.3.1 Compiling and Installing Poco
+ 
+Download Poco Complete Edition from http://www.pocoproject.org/download.
+For Unix/Linux, you will want the .tar.gz archive while for Windows you need
+the .zip archive.
+
+
+1.3.1.1 Unix/Linux
+
+After extracting the Poco (Complete Edition) source archive, the configure
+script should be called with the following parameters:
+ 
+    ./configure --omit=Crypto,Net,NetSSL_OpenSSL,Data/ODBC,Data/MySQL \
+                --no-tests --no-samples
+
+This line avoids building the parts of Poco which are dependent on third-party
+libraries, and are not required for openBliSSART.
+
+You can also specify a prefix where Poco should be installed, but in most cases
+you should leave the default /usr/local.
+
+Then, type "make" to compile and "make install" to install. If you are not
+logged in as root, try "sudo make install".
+
+Depending on where you have installed Poco, you may have to set the
+LD_LIBRARY_PATH environment variable to contain the Poco "lib" directory, 
+or run the ldconfig tool. The following lines work with Ubuntu and openSUSE
+($ indicates the shell prompt):
+
+$ sudo sh -c 'echo <prefix>/lib > /etc/ld.so.conf.d/poco.conf'
+$ sudo ldconfig
+
+where <prefix> is the Poco install prefix (by default /usr/local).
+
+Also, if you installed Poco in a non-standard location, you have to set the
+--with-poco-prefix option of the openBliSSART configure script (see Section
+2.1.1.3).
+
+
+1.3.1.2 Microsoft Windows
+
+After extracting the Poco Complete Edition from the ZIP file, open the file
+"components". To avoid building the parts of Poco which are dependent on
+third-party libraries, and are not required for openBliSSART, remove all lines
+but the following:
+
+CppUnit
+Foundation
+XML
+Util
+Data
+Data/SQLite
+
+Start the Visual Studio command line from the "Visual Studio Tools" folder in
+the Start menu. Change to the directory where the "components" file is located,
+and type "build_vs71" (Visual Studio .Net 2003), "build_vs80" (Visual Studio
+2005) or "build_vs90" (Visual Studio 2008). 
+
+After the build process has finished, copy the files from the "bin"
+directory to a directory that is part of your PATH environment variable, and
+the lib files from the "lib" directory to a directory which is listed in your
+Visual Studio Library Directories.
+
+Unfortunately, under Windows you have to install the Poco include files
+yourself. To this end, copy the "Poco" directory within the "include"
+subdirectories of each of the "Foundation", "Data", "Data\SQLite", and "Util"
+directories to a common path such as "C:\devel\include". Check that this 
+directory has the following subdirectories:
+
+C:\devel\include\Poco
+C:\devel\include\Poco\Data
+C:\devel\include\Poco\DataSQLite
+C:\devel\include\Poco\Util
+
+Then, add "C:\devel\include" (or whatever directory you choose) to your Visual
+Studio Include directories, in case it is not already there.
+
+
+
+2. Configure, compile, and install openBliSSART
+
+
+2.1 Unix/Linux
+
+The following installation instructions have been tested using the Ubuntu and
+openSUSE distributions, but should work on any Linux system, and theoretically
+on most Unix variants. 
+
+The "$ " at the beginning indicates the shell prompt, which might look
+different on your system.
+
+
+2.1.1 Configuration and installation
+
+Unpack the openBliSSART archive, e.g.
+
+$ mkdir -p ~/src
+$ tar xzf openBliSSART-1.2.tar.gz -C ~/src
+$ cd ~/src/openBliSSART-1.2
+
+Next you would typically run the `configure' script that comes with the
+sources. If there is no such file, you can create one yourself by typing
+
+$ ./bootstrap.sh
+
+at the command line, however make sure that you have both `automake' and
+`libtool' packages installed.
+
+The configure script can now be used to configure various parameters (type
+"./configure --help" for an overview), one of which is the installation prefix
+of openBliSSART. This prefix can be set via the --prefix option:
+
+./configure --prefix=<prefix>
+
+The prefix defaults to /usr/local/blissart.
+
+The configure script will check if you have the required libraries installed,
+and exit with an error if you do not. The "config.log" file provides a hint to
+the source of error in that case (in most cases, libraries installed in a
+non-standard location). If you have obtained Qt and/or Poco from the Internet
+and installed manually, you may have to set the --with-qt-prefix and
+--with-poco-prefix parameters (see Section 2.1.1.3).
+
+Particularly, the configure script will automatically determine if you have the
+ATLAS libraries installed. It will output a message like "Checking for cblas.h
+presence". If it says "no", you should check the config.log file, otherwise
+openBliSSART will be compiled without the ATLAS libraries and show low
+performance.
+
+Note that openBliSSART requires its own directory hierarchy and that every user
+working with openBliSSART needs write access to the <prefix>/etc and
+<prefix>/db subdirectories of the installation.
+Hence you have to choose between a shared and a user-specific installation.
+
+
+2.1.1.1 Shared Installation
+
+For this, we will be using the default prefix of /usr/local/blissart and install
+the software at this location. Then we will create a corresponding group and set
+the necessary access rights.
+
+$ ./configure
+$ make
+$ sudo make install
+$ sudo groupadd blissart
+$ cd /usr/local/blissart
+$ sudo mkdir db etc storage
+$ sudo chown -R :blissart .
+$ sudo chmod -R g+w db etc storage
+
+What remains is adding the respective users to the group which e.g. can be done
+via
+
+$ sudo gpasswd -a <username> blissart
+
+You may have to re-login for the new permissions to take effect.
+
+
+2.1.1.2 User-Specific Installation
+
+Aside from the shared installation which requires superuser privileges,
+a user-specific installation is maybe easier to perform. It suffices to specify
+an installation prefix within the user's home directory.
+
+$ ./configure --prefix=${HOME}/blissart
+$ make
+$ make install
+
+
+2.1.1.3 Other configure parameters
+
+Depending on your system configuration, you might find the following configure
+parameters helpful:
+
+--with-poco-prefix=<prefix> specifies the directory where your Poco
+installation can be found. This directory should contain the subdirectories
+"lib" and "include".
+
+--with-qt-prefix=<prefix> specifies your Qt installation directory. This option
+might be helpful if you obtained the Qt SDK from the Qt website instead of
+using your distribution's Qt packages. The directory should contain the "bin",
+"lib", and "include" subdirectories.
+
+As with any configure script, it is possible to set environment variables for
+the C compiler and linker:
+
+CPPFLAGS sets additional options for the C preprocessor, typically include
+directories:
+./configure <options> 'CPPFLAGS=-I=/path/to/my/includes'
+
+Conversely, LDFLAGS sets directories where the linker looks for libraries, and
+additional libraries that should be linked:
+./configure <options> 'LDFLAGS=-L/path/to/my/libs -lmylib'
+
+On some systems, it might be necessary to explicitly specify the math library:
+./configure <options> 'LDFLAGS=-lm'
+
+
+2.1.2 Running openBliSSART
+
+During the compilation process, a number of libraries were created which are
+required for openBliSSART to run. Since your operating system needs to know
+where to find these libraries, you have to choose between the following three
+options (where you have to replace the `<prefix>' placeholder with your chosen
+installation prefix, respectively):
+
+First, you can provide the library path every time when you are
+executing one of openBliSSART's binaries, e.g.
+
+$ LD_LIBRARY_PATH=<prefix>/lib:$LD_LIBRARY_PATH <prefix>/bin/browser
+
+Second, you can alter your .profile file so as to export the
+corresponding variable, i.e. add the line
+
+LD_LIBRARY_PATH="<prefix>/lib:$LD_LIBRARY_PATH"
+
+to your .profile.
+
+Third, you can configure the system-wide tool `ldconfig' such that it
+automatically knows where to find the libraries. For this, you need
+administrator privileges though. Under openSUSE and Ubuntu, the following
+lines should work:
+
+$ sudo sh -c 'echo <prefix>/lib > /etc/ld.so.conf.d/blissart.conf'
+$ sudo ldconfig
+
+Otherwise, check your distribution's manual.
+
+
+2.2 Microsoft Windows (Visual Studio 2008)
+
+2.2.1 Preparing the solution file
+
+To compile openBliSSART using Visual Studio 2008, open the provided solution 
+file ("openBliSSART.sln").
+
+VERY IMPORTANT: The next step must be executed while the solution file is opened
+in Visual Studio, otherwise the installer project will not work.
+
+You will need to adjust the paths used by the browser project file,
+as they depend on your Qt installation location. To this end, execute the
+"make_vcproj.bat" file in the "src\browser" directory.
+
+If you have older versions of Visual Studio (e.g. 2005) installed, the project
+file will be built for the lowest version you have. To avoid this, start the
+make_vcproj.bat from the Visual Studio 2008 Command Prompt which can be found
+in the Start menu in the "Visual Studio 2008 Tools" folder. Otherwise, the
+project will be automatically converted and should work fine.
+
+After executing make_vcproj.bat, a message will appear in the Visual Studio
+solution window that "browser.vcproj" has changed. Click on "Reload" to accept
+the new browser project file.
+
+
+2.2.2 Preparing the build process
+
+Ensure you have set the paths to external libraries in the Visual Studio
+environment correctly (see Section 1.2). 
+
+If you do not have the ATLAS library installed on your system (you do if you
+used the blissart-3rdparty-win32.zip file), please remove
+the "HAVE_CBLAS_H" preprocessor definition from the LibLinAlg project file
+(right-click the LibLinAlg project in the solution tree, click on "C/C++ /
+Preprocessor", then change the line of definitions from
+"BUILD_LIBLINALG;HAVE_CBLAS_H" to "BUILD_LIBLINALG" only). However performance
+will be very slow if you do this.
+
+
+2.2.3 Building and installing openBliSSART
+
+Make sure that "Release" / "Win32" (NOT "Debug") is selected as configuration
+in the Visual Studio toolbar, and click "Build" / "Build solution". 
+
+After compiling, openBliSSART libraries and tools will be available in the
+"bin\release" subdirectory. If you have Visual Studio 2008 Professional, you
+can also use the "Setup_openBliSSART" installer project to create an installer
+that automatically copies the openBliSSART binaries to a location on your file
+system, and creates an entry in the Start menu for the Browser. To make sure
+the installer copies the right versions of the libraries, add the Qt binary
+directory (where the qmake.exe file resides) on *top* of the Visual Studio
+Executable directories (under Tools / Settings / Projects and Solutions / VC++
+Directories). Then right-click on the "Setup_openBliSSART" project and click
+"Make". In the "win32\Setup_openBliSSART\Release" subdirectory of the source
+tree, an installer file (setup.exe) will be created which should be
+straightforward to use, lets you choose the installation directory, and copies
+external libraries to the openBliSSART installation directory.  This installer
+should work fine even on Windows Vista / Windows 7.
+
+If you cannot build the installer, copy the files from "bin\release" into a
+suitable location where your have write access to, such as "My
+Documents\openBliSSART". Under Windows XP, it is probably fine to install in
+"C:\Program Files", but under Windows 7 this is likely to cause problems due to
+the intransparent security policies of this system.
+
+
+
+
+3. Integrate Matlab libraries (experimental!)
+
+For increased performance, Matlab BLAS libraries can be used for linear algebra
+operations. However, since Matlab versions differ significantly in their API, 
+this support is currently experimental. In case of problems, please use the
+ATLAS libraries.
+
+A major problem with Matlab is that it provides own versions of the FFTW and Qt
+libraries which may be incompatible with the ones that openBliSSART was linked
+against. In that case, it is recommended to copy the files from the Matlab
+libraries directory (like <Matlab dir>/bin/<architecture>) to a separate
+directory (say "/lib/matlab" or "C:\matlab-lib") and remove the Qt and FFTW
+files (Windows: Qt*.dll and libfftw*.dll, Unix: libQt*.so, libfftw*.so) from
+that directory. Make sure the linker can find the files in this by adjusting
+the %PATH% (Windows) or $LD_LIBRARY_PATH (Linux) environment varibles. 
+
+
+3.1 Unix
+
+You need to pass the following parameters to the configure script:
+
+--with-matlab --with-matlab-lib=<dir> --with-matlab-include=<dir>
+
+--with-matlab tells the configure script to compile with Matlab support.
+It will try to guess the Matlab integer type (varying from version to version).
+In case of compile errors, check the MATLAB_INT_TYPE definition in the
+"config.h" file against your Matlab BLAS include file (typically
+<Matlab-dir>/extern/include/blas.h).
+
+--with-matlab-lib points to the directory where the Matlab libraries reside
+(usually <Matlab-dir>/bin/<arch>, but see the comment on conflicting libraries
+above!). 
+
+--with-matlab-include points to the directory where the Matlab include files
+reside (usually <Matlab-dir>/extern/include).
+
+
+3.2 Microsoft Windows
+
+Make sure that the directory where your Matlab libraries reside (usually
+<Matlab dir>\bin\win32) is in your %PATH%, the directory where Matlab export
+files are located (typically <Matlab dir>\extern\lib\win32\microsoft) is listed
+in your Visual Studio library paths, and the directory where the Matlab
+includes are located (usually <Matlab dir>\extern\include) is listed in your
+Visual Studio include paths.
+
+Next, identify the correct integer type for the Matlab API. For example, this 
+is ptrdiff_t for Matlab R2009b, and int for Matlab R2008. The correct type 
+can be found in the Matlab BLAS header file 
+(<Matlab dir>\extern\include\blas.h) by looking at the function definitions,
+e.g. the type of the "m" parameter to the "dgemm" function. 
+
+Add the "HAVE_MATLAB", and possibly remove the "HAVE_CBLAS_H" preprocessor
+definition from the LibLinAlg project file (right-click the LibLinAlg project
+in the solution tree, click on "C/C++ / Preprocessor", then change the line of
+definitions to "BUILD_LIBLINALG;HAVE_MATLAB"). This preprocessor definition will
+also cause the required libraries to be linked in. 
+
+If your integer type is _NOT_ ptrdiff_t, add a definition of the form
+"MATLAB_INT_TYPE=<type>" to the definition list, so that it looks like
+
+	BUILD_LIBLINALG;HAVE_MATLAB;MATLAB_INT_TYPE=int
+
+
+
+4. Troubleshooting
+
+Here are some of the problems that have been reported by system users, and
+how they can be fixed:
+
+
+Problem: Under openSUSE, the separation tool crashes, giving no error message
+but "Aborted".
+
+Cause: This might be caused by a erroneous ATLAS library shipped with openSUSE.
+
+Solution: Build ATLAS from source, and compile again. You can also build
+without ATLAS (by commenting out "HAVE_CBLAS_H" in config.h), but this will
+likely cause a significant performance loss.
+
+
+Problem: Under Unix/Linux, most of the tools immediately crash with the error
+message: "Access to file denied: /usr/local/blissart/etc/blissart.properties"
+
+Cause: Insufficient permissions. The openBliSSART toolbox needs write access 
+to the configuration, database, and storage directories (etc, db, storage) 
+within the openBliSSART install directory.
+
+Solution: Make sure that you have write permissions to the openBliSSART install
+directory. Follow the procedure outlined in Section 2.1.1.1 for shared
+installations, or re-install in another directory (e.g. ${HOME}/blissart) where
+you have write permissions.
+
+
+Problem: Most of the tools, including the testsuite, but not the icatool, crash
+instantly under Microsoft Windows, without an error message on the console. 
+
+Cause: This is probably caused by incompatibilities of the Poco binaries
+with your Visual Studio runtime.
+
+Solution: Compile Poco from source (Section 1.3.1.2), then build openBliSSART 
+again.
+
+
+Problem: Most of the tools exit with an error message like "Cannot write to
+database" under Windows.
+
+Cause: This is probably due to some "fancy" security policies of newer Windows
+versions (Vista, 7) that block file system access even for administrator users.
+
+Solution: Install openBliSSART in a directory like "My Documents" and try
+again. If you have Visual Studio 2008 Professional, you can also build a
+Windows Installer package using the "Setup_openBliSSART" deployment project
+shipped with the openBliSSART source archive.
+
+
+Problem: Under Windows, the Browser reports something like "Procedure entry
+point not found in QtXXX.dll".
+
+Cause: A version of Qt is in your PATH variable (e.g. from Matlab, or MikTeX)
+that is incompatible to the one that the Browser was linked against. A second
+reason could be that the installer copied a wrong version of the library.
+
+Solution: Build and use the Windows installer if you have Visual Studio 2008
+Professional. The installer will copy the right version of the Qt DLLs into the
+openBliSSART application directory, making sure that these are used at runtime.
+Otherwise, check your PATH variable and the "bin" directory of openBliSSART. If
+the PATH variable contains multiple directories where Qt libraries are found,
+copy the version you used to build openBliSSART to the "bin" directory. Check
+that the Visual Studio executable directories contain the same Qt version as
+the Visual Studio library directories, and rebuild and reinstall if necessary.
+
+
+Problem: When executing the "make_vcproj.bat" in the "src\browser" directory
+(under Windows), an error message like "Unable to generate output" appears.
+
+Cause: A common problem with Qt.
+
+Solution: Check that you have the right Qt version (which contains the Visual
+Studio export definitions for DLLs (*.lib) in the "lib" directory). Try to
+execute the following in the "src\browser" directory:
+set QMAKESPEC=win32-msvc2008
+qmake -tp vc
+
+
+Problem: When compiling under Visual Studio, an error message appears that
+"MOC xxx.h" or "UIC xxx.ui" fails.
+
+Cause: The browser project shipped with the source archive contains default
+paths to the Qt utilities (MOC, UIC), which probably must be adjusted to your
+system.
+
+Solution: Make sure that you have executed "make_vcproj.bat" in the
+"src\browser" directory, and that the file "src\browser\browser.vcproj" has
+been updated (check the file modification time).
+
+
+Problem: Visual Studio reports a linking error: XXXd.lib could not be found.
+
+Cause: You try to compile the debug version, but have no debug libraries
+installed.
+
+Solution: Make sure you have selected the "Release/Win32" configuration in the
+Visual Studio toolbar.
+
+
+Problem: Visual Studio reports a linking error (qtmain.lib could not be found).
+
+Cause: Incorrect Qt version.
+
+Solution: Check that you have installed the VS2008 version of Qt, which should
+contain Visual Studio 2008 DLL export files ("*.lib") in its "lib" directory.

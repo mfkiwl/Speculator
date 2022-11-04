@@ -1,0 +1,124 @@
+
+The HISSTools Impulse Response Toolbox (HIRT) Ñ History
+
+-----------------------------------------------------------------------------------------
+Change Log
+-----------------------------------------------------------------------------------------
+
+Changes in 2.1
+
+New Features
+
+All externals on macOS platform now in UB2 format and operating on Intel and Apple Silicon
+All externals are signed
+
+Improvements
+
+irvalue~: helpfile improved for clarity
+Effect abstractions: now handle patcher zoom and float more elegantly
+Effect abstractions: editing mode is now more obvious
+
+Bug Fixes
+
+spectrumdraw~: drawing issue with 'select' fixed
+Effect abstractions: fixed damping to morphfilter~ for case of very short IRs
+Effect abstractions: fixed @file attribute persistence in hirt.convolver~
+Effect abstractions: fixed inline documentation for issues introduced in changes to Max [hover] object, and other minor UI issues
+
+-------
+
+Changes in 2.0.1
+
+Bug Fixes
+
+Effect abstractions: fixed bug in custom UI dial where values could be sent in inactive mode under certain circumstances
+Effect abstractions: fixed multiconvolve~ latency initialising in hirt.convolutionreverb~
+
+-------
+
+Changes in 2.0
+
+New Features
+
+Moved to Max Package format
+New complete reference documentation and updated help files
+New abstractions including Convolution Reverb effect
+
+morphfilter~: new object for use in the hirt.convolutionreverb~ (for IR damping)
+bufreverse~: new  object for use in the hirt.convolutionreverb~ (for IR reversal)
+bufresample~: new  object for use in the hirt.convolutionreverb~ (for IR resampling)
+
+All objects: can now access limitless channels of a buffer~
+
+Improvements
+
+iraverage~/irplapprox~/irreference:~ - Hi-Quality smoothing code is now significantly faster
+
+Bug Fixes
+
+iralign~/iraverage~/irinvert~/irnonlin~/irtrimnorm~: fixed bug with checking buffers when using multiple names
+irextract~: fixed the use of coloured noise inputs to prevent hang
+irextract~: fixed the amplitude of results, according to the parameter settings
+irextract~: fixed error string when no contents present
+irextract~/irmeasure~: added the irgain attribute for real-world IR measurements
+irextract~/irmeasure~: fixed scaling with coloured noise measurements
+irextract~/irmeasure~/irsweeps~: fixed bugs with amplitudes of outputs/deconvolution for sweeps
+irextract~/irmeasure~/irsweeps~: fixed bug with results when no amplitude curve is set
+irinvert~: fixed to allow source and receiver size mismatches in MIMO mode
+irinvert~/irnonlin~: fixed a bug with complex division on windows that resulted in incorrect outputs
+irstats~: fixed a minor bug with the onset detection code
+irstats~: fixed bugs in the calculation of the center stat
+irvalue~: corrected linear interpolation of values
+multiconvolve~: fixed bugs with missing parts of an IR for block sizes of >= 256 
+multiconvolve~: object now functions with block sizes < 4
+spectrumdraw~: clipping of drawing has been corrected to fix a bug with incorrect appearance
+spectrumdraw~: the ÔHannÕ window is now correctly named
+
+All objects: buffer reading is now as documented when requesting a channel above the number in the buffer.
+
+All objects (windows only): fixed code relating to deconvolution filters and amp specifiers
+
+-------
+
+Changes in 1.2
+
+New Features
+
+irvalue~: new object to return dB amplitude of IR at given frequency (Hz) input
+irmeasure~: can now take up to 128 inputs & outputs
+
+
+Bug Fixes
+
+irmeasure~: fixed bug with progress reporting when measuring with less channels than present in the object.
+irstats~: fixed bugs that prevented reporting center and t30 stats correctly
+
+-------
+
+
+Changes in 1.1
+
+PLEASE NOTE
+
+irmeasure~ has changed arguments. These are now num inputs / num outputs.
+Whilst non-ideal to change argument ordering, this is more intuitive and matches multiconvolve~.
+
+New Features
+
+irextract~: new object to extract impulse responses from recorded sweeps
+irextract~/irmeasure~/irsweeps~: added control over sweep amplitude against frequency
+
+Bug Fixes
+
+Multiple objects: time multiplier arguments now correct in all objects
+
+irmeasure~: i/o args have been swapped 
+irphase~ arguments are now safe
+irtrimnorm~: message cropto now correctly outputs bang on success.
+irtrimnorm: pad mode fades now correctly aligned in time
+irtrimnorm~ pad arguments corrected
+spectrumdraw~: crash with low frequency mousing
+spectrumdraw~: notes are assigned incorrectly to octaves
+
+-------
+

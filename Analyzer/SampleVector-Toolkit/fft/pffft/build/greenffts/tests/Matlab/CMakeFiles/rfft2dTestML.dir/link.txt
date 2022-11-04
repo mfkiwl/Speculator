@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -rdynamic CMakeFiles/rfft2dTestML.dir/rfft2dTestML.c.o -o rfft2dTestML  ../../src/libGreenFFT.a -lm 

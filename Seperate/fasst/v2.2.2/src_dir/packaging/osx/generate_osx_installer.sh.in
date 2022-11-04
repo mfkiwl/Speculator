@@ -1,0 +1,29 @@
+#!/bin/sh
+make install DESTDIR=$PWD/package/pkg-system/
+
+binPath=$PWD/package/pkg-system/@CMAKE_INSTALL_PREFIX@/bin/
+
+for binary in $binPath/comp-rx $binPath/model-estimation $binPath/source-estimation
+do
+  install_name_tool -change /usr/local/opt/libsndfile/lib/libsndfile.1.dylib @loader_path/../bin/libsndfile_1.0.28.dylib $binary
+  install_name_tool -change /usr/local/opt/gcc/lib/gcc/7/libstdc++.6.dylib @loader_path/../bin/libstdc++.6.dylib $binary
+  install_name_tool -change /usr/local/opt/gcc/lib/gcc/7/libgomp.1.dylib @loader_path/../bin/libgomp.1.dylib $binary
+  install_name_tool -change /usr/local/lib/gcc/7/libgcc_s.1.dylib @loader_path/../bin/libgcc_s.1.dylib $binary
+done
+
+# fix open-mp dependency
+install_name_tool -change /usr/local/lib/gcc/7/libgcc_s.1.dylib @loader_path/../bin/libgcc_s.1.dylib $binPath/libgomp.1.dylib
+
+mkdir ./package/system-component
+mkdir ./package/examples-component
+
+chmod -R u+w package/examples
+chmod u+x package/examples/FASST_@FASST_VERSION@_examples/example1/example.py
+
+# build system (bin+scripts) component: will be installed under /usr/local
+pkgbuild --root package/pkg-system --identifier org.system.daemon --version @FASST_VERSION@ --ownership recommended package/system-component.pkg
+# build examples component
+pkgbuild --root package/examples --identifier org.examples.daemon --scripts package/scripts --version @FASST_VERSION@ --ownership preserve package/examples-component.pkg
+
+# build product (installer)
+productbuild --distribution package/distribution.xml --resources package/resources --package-path package --version @FASST_VERSION@@FASST_VERSION@ ./FASST_@FASST_VERSION@-OSX.pkg

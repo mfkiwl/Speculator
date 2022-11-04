@@ -1,0 +1,14 @@
+function fasst_estimate_source_parameters( in_xml_fname, binary_dirname, out_xml_fname, varargin)
+    fasst_executable_dir = '@FASST_EXECUTABLE_DIR@';
+    prog = [fasst_executable_dir '/model-estimation'];
+    cmd = ['"' prog '" ' in_xml_fname ' ' binary_dirname ' ' out_xml_fname];
+    
+
+    for i=1:(nargin-3)
+        cmd = [cmd ' ' varargin{i}];
+    end
+    
+    if system(cmd) ~= 0
+        throw(MException('', ''))
+    end
+end

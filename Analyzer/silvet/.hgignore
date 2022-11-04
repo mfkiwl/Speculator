@@ -1,0 +1,14 @@
+syntax: glob
+*~
+*.orig
+*.o
+*.class
+*.bak
+*.so
+
+*.obj
+*.tlog
+*.pdb
+*.idb
+*.lib
+*.dll

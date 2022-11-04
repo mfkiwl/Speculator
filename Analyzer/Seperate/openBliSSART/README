@@ -1,0 +1,39 @@
+openBliSSART is a C++ framework and toolbox that provides "Blind Source
+Separation for Audio Recognition Tasks". Its areas of application include
+instrument separation (e.g. extraction of drum tracks from popular music),
+speech enhancement, and feature extraction. It features various source
+separation algorithms, with a strong focus on variants of Non-Negative Matrix
+Factorization (NMF).
+
+Besides basic unsupervised source separation, it provides support for component
+classification by Support Vector Machines (SVM) using common acoustic features
+from speech and music processing. For data set creation a Qt-based GUI is
+available. Furthermore, supervised NMF can be performed and used for audio
+feature extraction.
+ 
+openBliSSART is fast: typical real-time factors are in the order of 0.1
+(Euclidean NMF) on a state-of-the-art desktop PC.
+
+openBliSSART is free software and licensed under the GNU General Public License
+(see the COPYING file).
+
+Detailed installation instructions can be found in the INSTALL file. Make sure
+to read it first, as it contains valuable hints for easy installation on many
+system configurations.
+
+For a first impression of openBliSSART, you may want to try the drum beat
+separation demonstrator which is included in the "demo" directory, along with
+installation and usage information.
+
+There is a variety of documentation available in the "doc" directory, including
+a tutorial, reference manual, and API documentation. Please consult the file
+"doc/README" for details.
+
+If you want to use openBliSSART for your research, please cite the following
+paper:
+
+Felix Weninger, Alexander Lehmann, Bjoern Schuller: 
+"openBliSSART: Design and Evaluation of a Research Toolkit for 
+Blind Source Separation in Audio Recognition Tasks", to appear in
+Proc. International Conference on Acoustics, Speech and Signal Processing 
+(ICASSP) 2011, IEEE, Prague, Czech Republic, 22.-27.05.2011.

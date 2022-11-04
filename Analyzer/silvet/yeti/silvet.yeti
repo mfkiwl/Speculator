@@ -1,0 +1,72 @@
+
+program silvet;
+
+{ prepareTimeFrequency } = load timefreq;
+{ loadTemplates, extractRanges } = load templates;
+
+em = load em;
+
+mat = load may.matrix;
+vec = load may.vector;
+plot = load may.plot;
+
+templates = loadTemplates ();
+
+ranges = extractRanges templates;
+
+eprintln "\nWe have \(length (keys templates)) instruments:";
+for (sort (keys templates)) do k:
+    eprintln " * \(k) \(mat.size templates[k]) range \(ranges[k].lowest) -> \(ranges[k].highest)";
+done;
+eprintln "";
+
+columns = prepareTimeFrequency "test.wav";
+
+height = if empty? columns then 0 else vec.length (head columns) fi;
+
+chunkSize = { rows = height, columns = 100 };
+
+emdata = em.initialise ranges templates 88 chunkSize;
+
+eprintln "initialised EM data: overall pitch range \(emdata.lowest) -> \(emdata.highest)";
+
+chunkify cols = 
+    if empty? cols then []
+    else
+       (mat.resizedTo chunkSize
+           (mat.fromColumns (take chunkSize.columns cols)))
+        :. \(chunkify (drop chunkSize.columns cols));
+    fi;
+
+chunks = chunkify columns;
+
+eprintln "we have \(length chunks) chunks of size \(mat.size (head chunks))";
+
+oneIteration emdata chunk n =
+   (eprintln "E";
+    { estimate, q } = em.performExpectation emdata chunk;
+    eprintln "M";
+    newdata = em.performMaximisation emdata chunk q;
+    if (n % 6 == 0) then
+        \() (plot.plot [ Grid chunk ]);
+        \() (plot.plot [ Grid estimate ]);
+    fi;
+    newdata);
+
+iterations = 6;
+
+var d = emdata;
+for [1..iterations] do i:
+    eprintln "iteration \(i)...";
+    d := oneIteration d (head chunks) i;
+done;    
+
+eprintln "done, plotting pitch activation matrix";
+
+\() (plot.plot [Grid d.pitches]);
+\() (plot.plot [Contour d.pitches]);
+
+
+();
+
+

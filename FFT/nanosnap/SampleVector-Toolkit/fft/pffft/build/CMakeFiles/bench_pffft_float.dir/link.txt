@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/bench_pffft_float.dir/bench_pffft.c.o -o bench_pffft_float  libpffft.a libFFTPACK_FLOAT.a greenffts/src/libGreenFFT.a kissfft/libKissFFT.a pocketfft/libPocketFFT.a -lm 

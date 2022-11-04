@@ -1,0 +1,2 @@
+/usr/bin/ar qc libPocketFFT.a CMakeFiles/PocketFFT.dir/pocketfft_double.c.o CMakeFiles/PocketFFT.dir/pocketfft_single.c.o
+/usr/bin/ranlib libPocketFFT.a

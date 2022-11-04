@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C75B79641A0A2202008DA887 /* fftext.c in Sources */ = {isa = PBXBuildFile; fileRef = C75B795E1A0A2202008DA887 /* fftext.c */; };
+		C75B79651A0A2202008DA887 /* fftlib.c in Sources */ = {isa = PBXBuildFile; fileRef = C75B79601A0A2202008DA887 /* fftlib.c */; };
+		C75B79661A0A2202008DA887 /* matlib.c in Sources */ = {isa = PBXBuildFile; fileRef = C75B79621A0A2202008DA887 /* matlib.c */; };
+		C75B79AE1A2032FD008DA887 /* libsndfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C75B79AB1A2032FD008DA887 /* libsndfile.a */; };
+		C7BA97B61A086F31005F9124 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = C7BA97B11A086F31005F9124 /* internal.c */; };
+		C7BA97B71A086F31005F9124 /* pv.c in Sources */ = {isa = PBXBuildFile; fileRef = C7BA97B31A086F31005F9124 /* pv.c */; };
+		C7BA97B81A086F31005F9124 /* user.c in Sources */ = {isa = PBXBuildFile; fileRef = C7BA97B51A086F31005F9124 /* user.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C7BA97A51A086ECB005F9124 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C75B795E1A0A2202008DA887 /* fftext.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fftext.c; path = phasevocoder/fftext.c; sourceTree = "<group>"; };
+		C75B795F1A0A2202008DA887 /* fftext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fftext.h; path = phasevocoder/fftext.h; sourceTree = "<group>"; };
+		C75B79601A0A2202008DA887 /* fftlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fftlib.c; path = phasevocoder/fftlib.c; sourceTree = "<group>"; };
+		C75B79621A0A2202008DA887 /* matlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = matlib.c; path = phasevocoder/matlib.c; sourceTree = "<group>"; };
+		C75B79631A0A2202008DA887 /* matlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = matlib.h; path = phasevocoder/matlib.h; sourceTree = "<group>"; };
+		C75B798B1A0A227E008DA887 /* fftlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fftlib.h; path = phasevocoder/fftlib.h; sourceTree = "<group>"; };
+		C75B79AB1A2032FD008DA887 /* libsndfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsndfile.a; path = phasevocoder/libsndfile.a; sourceTree = "<group>"; };
+		C75B79AC1A2032FD008DA887 /* sndfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sndfile.h; path = phasevocoder/sndfile.h; sourceTree = "<group>"; };
+		C75B79AD1A2032FD008DA887 /* sndfile.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = sndfile.hh; path = phasevocoder/sndfile.hh; sourceTree = "<group>"; };
+		C7AC813F1DC50F020034DEB3 /* Stereo_Single_Stroke_Roll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Stereo_Single_Stroke_Roll.wav; path = phasevocoder/Stereo_Single_Stroke_Roll.wav; sourceTree = "<group>"; };
+		C7AC81401DC510310034DEB3 /* sndfile.h.gch */ = {isa = PBXFileReference; lastKnownFileType = file; name = sndfile.h.gch; path = phasevocoder/sndfile.h.gch; sourceTree = "<group>"; };
+		C7BA97A71A086ECB005F9124 /* phasevocoder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = phasevocoder; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7BA97B11A086F31005F9124 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = internal.c; path = phasevocoder/internal.c; sourceTree = "<group>"; };
+		C7BA97B21A086F31005F9124 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = internal.h; path = phasevocoder/internal.h; sourceTree = "<group>"; };
+		C7BA97B31A086F31005F9124 /* pv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pv.c; sourceTree = "<group>"; usesTabs = 0; };
+		C7BA97B41A086F31005F9124 /* pv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pv.h; sourceTree = "<group>"; };
+		C7BA97B51A086F31005F9124 /* user.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = user.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7BA97A41A086ECB005F9124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75B79AE1A2032FD008DA887 /* libsndfile.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7BA979E1A086ECB005F9124 = {
+			isa = PBXGroup;
+			children = (
+				C7AC81401DC510310034DEB3 /* sndfile.h.gch */,
+				C7AC813F1DC50F020034DEB3 /* Stereo_Single_Stroke_Roll.wav */,
+				C75B79AB1A2032FD008DA887 /* libsndfile.a */,
+				C75B79AC1A2032FD008DA887 /* sndfile.h */,
+				C75B79AD1A2032FD008DA887 /* sndfile.hh */,
+				C7BA97B21A086F31005F9124 /* internal.h */,
+				C7BA97B11A086F31005F9124 /* internal.c */,
+				C75B795E1A0A2202008DA887 /* fftext.c */,
+				C75B795F1A0A2202008DA887 /* fftext.h */,
+				C75B798B1A0A227E008DA887 /* fftlib.h */,
+				C75B79601A0A2202008DA887 /* fftlib.c */,
+				C75B79621A0A2202008DA887 /* matlib.c */,
+				C75B79631A0A2202008DA887 /* matlib.h */,
+				C7BA97A81A086ECB005F9124 /* Products */,
+				C7BA97A91A086ECB005F9124 /* phasevocoder */,
+			);
+			sourceTree = "<group>";
+		};
+		C7BA97A81A086ECB005F9124 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7BA97A71A086ECB005F9124 /* phasevocoder */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7BA97A91A086ECB005F9124 /* phasevocoder */ = {
+			isa = PBXGroup;
+			children = (
+				C7BA97B41A086F31005F9124 /* pv.h */,
+				C7BA97B31A086F31005F9124 /* pv.c */,
+				C7BA97B51A086F31005F9124 /* user.c */,
+			);
+			path = phasevocoder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7BA97A61A086ECB005F9124 /* phasevocoder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7BA97AE1A086ECB005F9124 /* Build configuration list for PBXNativeTarget "phasevocoder" */;
+			buildPhases = (
+				C7BA97A31A086ECB005F9124 /* Sources */,
+				C7BA97A41A086ECB005F9124 /* Frameworks */,
+				C7BA97A51A086ECB005F9124 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = phasevocoder;
+			productName = phasevocoder;
+			productReference = C7BA97A71A086ECB005F9124 /* phasevocoder */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7BA979F1A086ECB005F9124 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = cmu;
+				TargetAttributes = {
+					C7BA97A61A086ECB005F9124 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = C7BA97A21A086ECB005F9124 /* Build configuration list for PBXProject "phasevocoder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C7BA979E1A086ECB005F9124;
+			productRefGroup = C7BA97A81A086ECB005F9124 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7BA97A61A086ECB005F9124 /* phasevocoder */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7BA97A31A086ECB005F9124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75B79661A0A2202008DA887 /* matlib.c in Sources */,
+				C7BA97B61A086F31005F9124 /* internal.c in Sources */,
+				C7BA97B71A086F31005F9124 /* pv.c in Sources */,
+				C75B79641A0A2202008DA887 /* fftext.c in Sources */,
+				C7BA97B81A086F31005F9124 /* user.c in Sources */,
+				C75B79651A0A2202008DA887 /* fftlib.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C7BA97AC1A086ECB005F9124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C7BA97AD1A086ECB005F9124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C7BA97AF1A086ECB005F9124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zihengchen/Desktop/tmp,
+					"$(PROJECT_DIR)/phasevocoder",
+				);
+				"OTHER_CFLAGS[arch=*]" = "-I/usr/local/include/";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C7BA97B01A086ECB005F9124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zihengchen/Desktop/tmp,
+					"$(PROJECT_DIR)/phasevocoder",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7BA97A21A086ECB005F9124 /* Build configuration list for PBXProject "phasevocoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7BA97AC1A086ECB005F9124 /* Debug */,
+				C7BA97AD1A086ECB005F9124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7BA97AE1A086ECB005F9124 /* Build configuration list for PBXNativeTarget "phasevocoder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7BA97AF1A086ECB005F9124 /* Debug */,
+				C7BA97B01A086ECB005F9124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7BA979F1A086ECB005F9124 /* Project object */;
+}

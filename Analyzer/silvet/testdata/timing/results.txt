@@ -1,0 +1,314 @@
+
+Thinkpad T540p i5-4330M @2.80GHz with 16GB RAM, plugged in
+Arch Linux, gcc 4.8.2
+Using sonic-annotator v1.0 (commit:41c4de1e05d8), release build
+
+Debug flags: -g -fPIC
+Release flags: -O3 -ffast-math -msse -mfpmath=sse -ftree-vectorize -fPIC
+
+Release flags for qm-dsp also include -fomit-frame-pointer
+
+The input file is 1-channel 16-bit PCM at 44100Hz, duration 0m43.5s.
+
+
+DEBUG/RELEASE:
+
+commit:ce64d11ef336, release build of Silvet, release build of qm-dsp
+
+real	1m44.456s
+user	1m44.343s
+sys	0m0.210s
+
+commit:ce64d11ef336, debug build of Silvet, release build of qm-dsp
+
+real	14m16.124s
+user	14m16.907s
+sys	0m0.217s
+
+commit:ce64d11ef336, release build of Silvet, debug build of qm-dsp
+
+real	1m55.204s
+user	1m55.053s
+sys	0m0.253s
+
+Subsequent tests use release builds of both.
+
+
+VAMP FEATURE SUPPRESSION:
+
+commit:7133f78ccbf6, as commit:ce64d11ef336 but with CQ output feature
+return commented out
+
+real	1m46.162s
+user	1m46.093s
+sys	0m0.157s
+
+commit:78a7bf247016, as commit:ce64d11ef336 but with CQ output and FCQ
+output feature return commented out
+
+real	1m45.206s
+user	1m45.153s
+sys	0m0.147s
+
+conclusion: no advantage in removing these
+
+
+DEBUG PRINTOUTS:
+
+commit:f3bf6503e6c6, as commit:ce64d11ef336 but with debug printouts
+removed
+
+real	1m43.744s
+user	1m43.657s
+sys	0m0.203s
+
+conclusion: obviously we want to remove these eventually, but might as
+well keep in during testing
+
+
+EM ITERATIONS:
+
+commit:5314d3361dfb, as commit:ce64d11ef336 but with only 6 EM
+iterations instead of 12
+
+real	0m59.055s
+user	0m58.897s
+sys	0m0.193s
+
+conclusion: EM dominates the time taken, not CQ or note forming
+
+
+CQ DECIMATOR CONFIGURATION:
+
+Uncommitted revision (because changes are in CQ subrepo) that is as
+commit:ce64d11ef336 but with resampler SNR=30 and BW=0.04 instead of
+SNR=60 and BW=0.02
+
+real	1m43.176s
+user	1m43.067s
+sys	0m0.190s
+
+conclusion: supports the previous test
+
+
+OPENMP:
+
+commit:62b7be1226d5, as commit:ce64d11ef336 but with OpenMP parallel
+"for" in the main EM iteration loop (4 cores)
+
+real	0m56.400s
+user	2m59.740s
+sys	0m0.237s
+
+
+EM TWEAKS:
+
+commit:a0dedcbfa628, as commit:ce64d11ef336 but with variables hoisted
+out of loops and consts added wherever applicable
+
+real	1m44.548s
+user	1m44.460s
+sys	0m0.183s
+
+conclusion: compiler already knows this stuff
+
+commit:64b08cc12da0, as commit:ce64d11ef336 but with loops merged so
+as theoretically to reduce intermediate calculations
+
+real	3m46.969s
+user	3m46.850s
+sys	0m0.220s
+
+commit:6075e92d63ab, as commit:64b08cc12da0 but with innermost loop
+reverted to three loops with simple bodies instead of one with a more
+complex body
+
+real	1m44.767s
+user	1m44.490s
+sys	0m0.190s
+
+commit:97b77e7cb94c, as commit:6075e92d63ab but with templates stored
+as doubles instead of floats (doubling the size of the plugin binary)
+
+real	1m40.135s
+user	1m39.820s
+sys	0m0.230s
+
+commit:a6e136aaa202, as commit:97b77e7cb94c but with target vectors &
+grids initialised to epsilon instead of copied & then overwritten
+(this one also makes the intention clearer I think so is worth doing)
+
+real	1m39.277s
+user	1m39.000s
+sys	0m0.183s
+
+commit:840c0d703bbb, as commit:a6e136aaa202 but using single-precision
+floats for all EM code (and templates). This is probably not wise
+without separately testing the quality of the results but it's
+interesting to compare
+
+real	1m29.003s
+user	1m28.697s
+sys	0m0.197s
+
+commit:91bb029a847a, as commit:a6e136aaa202 but with the series of
+calculations reordered to match that in the recent bqvec code
+commit:b2f0967cb8d1. Just testing whether it is the replacement of
+std::vector or the reordering of vector operations that was saving the
+time in bqvec branch.
+
+real	2m52.922s
+user	2m52.480s
+sys	0m0.263s
+
+
+BQVEC:
+
+commit:81eaba98985b, as commit:a6e136aaa202 but converted to use bqvec
+for basic allocation etc; processing logic unchanged
+
+real	1m37.320s
+user	1m36.863s
+sys	0m0.240s
+
+commit:891cbcf1e4d2, as commit:81eaba98985b but with some calculations
+vectorised [note: has silly bug]
+
+real	1m24.961s
+user	1m24.663s
+sys	0m0.177s
+
+commit:853b2d750688, as commit:891cbcf1e4d2 but with silly bug fixed
+
+real	1m26.876s
+user	1m26.387s
+sys	0m0.267s
+
+commit:9ecad4c9c2a2, as commit:853b2d750688 but using a couple of
+bqvec calls in expectation function
+
+real	1m9.153s
+user	1m8.837s
+sys	0m0.187s
+
+(this seems unlikely -- what have I broken?)
+
+commit:8259193b3b16, as commit:9ecad4c9c2a2 but avoiding some
+allocations
+
+real	1m10.631s
+user	1m10.327s
+sys	0m0.180s
+
+(still broken?)
+
+commit:19f6832fdc8a, as commit:9ecad4c9c2a2 but with the arguments to
+v_add_with_gain supplied in the right order (that's what I'd broken!)
+
+real	1m28.957s
+user	1m28.437s
+sys	0m0.213s
+
+
+BQVEC and OPENMP
+
+commit:ac750e222ad3, result of merging openmp branch
+commit:62b7be1226d into bqvec branch commit:19f6832fdc8a
+
+real	0m44.650s
+user	2m19.997s
+sys	0m0.343s
+
+commit:c4eae816bdb3, as commit:ac750e222ad3 but with some logic to
+make using the shifts optional (though on by default). Performance
+*should* be unchanged here.
+
+real	0m43.979s
+user	2m19.297s
+sys	0m0.360s
+
+commit:b2f0967cb8d1, as commit:c4eae816bdb3 but storing the templates
+as float arrays and then pulling them out into individual
+one-per-shift-factor double arrays each of which is explicitly
+allocated with the proper alignment. Uses more memory, and the code is
+ugly, but gets aligned starts for slightly more of the vector ops.
+
+real	0m50.856s
+user	2m44.937s
+sys	0m0.463s
+
+commit:6890dea115c3, as commit:c4eae816bdb3 with a loop factored out
+
+real	0m40.565s
+user	2m3.883s
+sys	0m0.307s
+
+commit:230920148ee5, as commit:6890dea115c3 with a simpler openmp loop
+
+real	0m39.761s
+user	2m3.093s
+sys	0m0.347s
+
+commit:df05f855f63b, same code as commit:230920148ee5 but with bqvec
+as subrepo (just checking)
+
+real	0m40.799s
+user	2m2.603s
+sys	0m0.313s
+
+commit:df05f855f63b again, with OMP_NUM_THREADS=1
+
+real	1m18.265s
+user	1m17.707s
+sys	0m0.223s
+
+
+FURTHER WORK FOLLOWING BQVEC and OPENMP MERGE
+
+commit:f25b8e7de0ed, as commit:df05f855f63b but not processing
+templates that are out of range for an instrument (since they should
+be all zeros anyway)
+
+real	0m23.640s
+user	0m59.903s
+sys	0m0.277s
+
+commit:f25b8e7de0ed in draft mode (no shifts):
+
+real	0m13.970s
+user	0m21.670s
+sys	0m0.260s
+
+
+COMPARATIVE TIMINGS from OTHER COMPUTERS
+
+Thinkpad T40p Pentium-M (Centrino) @1.6GHz with 1.5GB RAM, plugged in
+Arch Linux, gcc 4.8.2
+Using sonic-annotator v0.8, release build
+
+Release flags: -O3 -ffast-math -msse -mfpmath=sse -ftree-vectorize -fPIC
+
+commit:f25b8e7de0ed
+
+real	6m54.670s
+user	6m31.817s
+sys	0m14.753s
+
+commit:ce64d11ef336
+
+real	9m0.637s
+user	8m16.800s
+sys	0m25.877s
+
+commit:f25b8e7de0ed with -msse2 -march=pentium-m added to compiler flags:
+
+real	7m4.231s
+user	6m41.760s
+sys	0m13.807s
+
+commit:f25b8e7de0ed in draft mode (no shifts):
+
+real	3m30.218s
+user	3m10.527s
+sys	0m15.887s
+

@@ -1,0 +1,408 @@
+﻿/* French translations for HybridReverb package. */
+/* Copyright (C) 2018 THE HybridReverb'S COPYRIGHT HOLDER */
+/* This file is distributed under the same license as the HybridReverb package. */
+/*  <jp-dev@inbox.ru>, 2018. */
+/* */
+"" = "Project-Id-Version: HybridReverb 2\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2018-09-04 12:05+0200\nPO-Revision-Date: 2018-09-04 12:05+0200\nLast-Translator: Automatically generated\nLanguage-Team: none\nLanguage: fr\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n > 1);\n";
+
+/* File: Source/gui/TabPreferences.cpp:110 */
+"(no choices)" = "(aucun choix)";
+
+/* File: Source/gui/TabMain.cpp:90 */
+/* File: Source/gui/TabMain.cpp:101 */
+/* File: Source/gui/TabMain.cpp:112 */
+/* File: Source/gui/TabMain.cpp:123 */
+/* Flag: untranslated */
+"---" = "---";
+
+/* File: Source/gui/TabPreferences.cpp:152 */
+/* File: Source/gui/TabPresetEditor.cpp:172 */
+/* File: Source/gui/TabPresetEditor.cpp:227 */
+/* File: Source/gui/TabPresetEditor.cpp:234 */
+/* File: Source/gui/TabPresetEditor.cpp:241 */
+/* Flag: untranslated */
+"..." = "...";
+
+/* File: Source/gui/TabMain.cpp:53 */
+/* Flag: untranslated */
+"1" = "1";
+
+/* File: Source/gui/TabPreferences.cpp:115 */
+"1024 samples (latency: 21.3ms at 48kHz)" = "1024 échantillons (latence : 21.3ms à 48kHz)";
+
+/* File: Source/gui/TabMain.cpp:73 */
+/* Flag: untranslated */
+"123456789012345678901234" = "123456789012345678901234";
+
+/* File: Source/gui/TabPreferences.cpp:112 */
+"128 samples (latency: 2.7ms at 48kHz)" = "128 échantillons (latence : 2.7ms à 48kHz)";
+
+/* File: Source/gui/TabPreferences.cpp:116 */
+"2048 samples (latency: 42.7ms at 48kHz)" = "2048 échantillons (latence : 42.7ms à 48kHz)";
+
+/* File: Source/gui/TabPreferences.cpp:113 */
+"256 samples (latency: 5.3ms at 48kHz)" = "256 échantillons (latence : 5.3ms à 48kHz)";
+
+/* File: Source/gui/TabPreferences.cpp:117 */
+"4096 samples (latency: 85.3ms at 48kHz)" = "4096 échantillons (latence : 85.3ms à 48kHz)";
+
+/* File: Source/gui/TabPreferences.cpp:114 */
+"512 samples (latency: 10.7ms at 48kHz)" = "512 échantillons (latence : 10.7ms à 48kHz)";
+
+/* File: Source/gui/TabPreferences.cpp:111 */
+"64 samples (latency: 1.3ms at 48kHz)" = "64 échantillons (latence : 1.3ms à 48kHz)";
+
+/* File: Source/PresetManager.cpp:118 */
+/* File: Source/gui/Editor.cpp:168 */
+":" = ": ";
+
+/* File: Source/gui/TabPresetEditor.cpp:711 */
+"<Empty>" = "<Vide>";
+
+/* File: Source/gui/EditorComponent.cpp:79 */
+"About" = "À propos";
+
+/* File: Source/gui/TabAbout.cpp:96 */
+"About Me and HybridReverb2:\n\nAs a research associate at the Institute of Communication Acoustics, Ruhr-Universität Bochum, Germany, I'm currently persuing a Dr.-Ing. degree in electrical engineering. I benefited from free and open source software for so many years that I felt that I should give something back to the community. As I'm working in the field of virtual acoustics and spatial audio, writing a room effect plugin kind of suggested itself. I hope you enjoy the sound as much as I do!\n\nBest regards,\nChristian Borß <christian.borss@rub.de>\n\n\nCredits:\n\n- Julian Storer for his JUCE library\n- The development team of the Jucetice project (jost, juced, etc.)\n- Matteo Frigo, Steven G. Johnson, and anybody else who contributed to the FFTW library\n- Prof. Rainer Martin for supporting my research\n- Björn Kapteina for the implementation of the Windows installer\n\n\nReferences:\n\nBorß, C., Martin, R. (2009). \"An Improved Parametric Model for Perception-Based Design of Virtual Acoustics\", AES 35th Int. Conference, London, UK, Feb. 2009.\n\nBorß, C. (2009). \"A Novel Approach for Optimally Matching a Late Reverberation Model to an Image Source Model - Or: What Does a Football Have to Do With Shoebox Shaped Rooms?\", Auralization Symposium of the European Acoustics Association, Espoo, Finland, Jun. 2009.\n\nBorß, C. (2009). \"A VST Reverberation Effect Plugin Based on Synthetic Room Impulse Responses\", 12th Int. Conference on Digital Audio Effects (DAFx-09), Como, Italy, Sep. 2009." = "À propos de Moi et de HybridReverb2 :\n\nEn tant qu'associé de recherche à l'Institut d'Acoustique de Communication, Ruhr-Universität Bochum, Allemagne, je passe actuellement un diplôme de Dr.-Ing. en ingénierie de l'électronique. Ayant tiré bénéfice des logiciels libres et ouverts pendant de nombreuses années, j'ai souhaité apporter une contribution personnelle à la communauté en retour. Étant donné que je travaille dans le domaine de l'acoustique virtuelle et l'audio spatialisé, l'écriture d'un greffon d'effet était une suggestion évidente. J'espère que vous apprécierez le son autant que moi !\n\nMeilleures salutations,\nChristian Borß <christian.borss@rub.de>\n\n\nAccréditations :\n\n- Julian Storer pour sa bibliothèque JUCE\n- L'équipe de développement du projet Jucetice (jost, juced, etc.)\n- Matteo Frigo, Steven G. Johnson, et toute autre personne ayant contribué à la bibliothèque FFTW\n- Le Prof. Rainer Martin pour son soutien à mon travail de recherche\n- Björn Kapteina pour son implémentation de l'installateur Windows\n\n\nRéférences :\n\nBorß, C., Martin, R. (2009). \"An Improved Parametric Model for Perception-Based Design of Virtual Acoustics\", AES 35th Int. Conference, London, UK, Feb. 2009.\n\nBorß, C. (2009). \"A Novel Approach for Optimally Matching a Late Reverberation Model to an Image Source Model - Or: What Does a Football Have to Do With Shoebox Shaped Rooms?\", Auralization Symposium of the European Acoustics Association, Espoo, Finland, Jun. 2009.\n\nBorß, C. (2009). \"A VST Reverberation Effect Plugin Based on Synthetic Room Impulse Responses\", 12th Int. Conference on Digital Audio Effects (DAFx-09), Como, Italy, Sep. 2009.";
+
+/* File: Source/gui/TabPresetEditor.cpp:348 */
+"Add" = "Ajouter";
+
+/* File: Source/gui/TabPresetEditor.cpp:334 */
+"Apply" = "Appliquer";
+
+/* File: Source/gui/TabAbout.cpp:39 */
+"Background Information and Credits" = "Informations Générales et Accréditations";
+
+/* File: Source/gui/TabPresetEditor.cpp:83 */
+"Category 1:" = "Catégorie 1 :";
+
+/* File: Source/gui/TabPresetEditor.cpp:94 */
+"Category 2:" = "Catégorie 2 :";
+
+/* File: Source/gui/TabPresetEditor.cpp:105 */
+"Category 3:" = "Catégorie 3 :";
+
+/* File: Source/gui/TabPresetEditor.cpp:116 */
+"Category 4:" = "Catégorie 4 :";
+
+/* File: Source/gui/TabPresetEditor.cpp:630 */
+"Choose a WAV file to open..." = "Choisir un fichier WAV à ouvrir...";
+
+/* File: Source/gui/TabPresetEditor.cpp:647 */
+"Choose a XML file to open..." = "Choisir un fichier XML à ouvrir...";
+
+/* File: Source/gui/TabPresetEditor.cpp:664 */
+"Choose a XML file to save..." = "Choisir un fichier XML à enregistrer...";
+
+/* File: Source/gui/TabPreferences.cpp:151 */
+"Choose a file" = "Choisir un fichier";
+
+/* File: Source/gui/TabPreferences.cpp:331 */
+"Choose a preset file to open..." = "Choisir un fichier de préréglage à ouvrir...";
+
+/* File: Source/gui/DownloadDbComponent.cpp:93 */
+"Click link to download:" = "Cliquez sur le lien de téléchargement :";
+
+/* File: Source/gui/DownloadDbComponent.cpp:82 */
+"Copyright Notice" = "Mention de Propriété Intellectuelle";
+
+/* File: Source/gui/TabPresetEditor.cpp:355 */
+"Delete" = "Supprimer";
+
+/* File: Source/gui/TabMain.cpp:220 */
+"Dry Gain" = "Gain Direct";
+
+/* File: Source/PresetManager.cpp:121 */
+/* File: Source/PresetManager.cpp:153 */
+/* File: Source/SampleData.cpp:124 */
+/* File: Source/SampleData.cpp:137 */
+/* File: Source/SampleData.cpp:150 */
+/* File: Source/gui/Editor.cpp:171 */
+"Error" = "Erreur";
+
+/* File: Source/gui/Editor.cpp:166 */
+"Error extracting database file" = "Erreur d'extraction du fichier de données";
+
+/* File: Source/SampleData.cpp:121 */
+/* File: Source/SampleData.cpp:134 */
+/* File: Source/SampleData.cpp:147 */
+"Error reading audio file" = "Erreur de lecture du fichier audio";
+
+/* File: Source/PresetManager.cpp:116 */
+"Error reading preset file" = "Erreur de lecture du fichier de préréglages";
+
+/* File: Source/PresetManager.cpp:150 */
+"Error writing preset file" = "Erreur d'écriture du fichier de préréglages";
+
+/* File: Source/gui/TabPreferences.cpp:158 */
+"FIG1: Generation of a sound field as simulated in a virtual environment at a given listener position by a virtual coincidence microphone array with the outlined directivity pattern" = "FIG1 : Génération d'un champ sonore tel que simulé dans un environnement virtuel à une position d'écoute donnée, par coincidence virtuelle d'une série de microphones dont il est illustré le motif de directivité";
+
+/* File: Source/gui/TabAbout.cpp:45 */
+"FIG2: Me at the \"Social Event\" of the 35th Int. AES conference (\"Audio for Games\"). Please note how extraordinary good the colors of the various image components match the color theme of this plugin!\n" = "FIG2 : Moi à l'\"Événement Social\" de la 35è conférence AES Int. (\"Audio for Games\"). Veuillez remarquer comme les composantes de couleur de cette image correspondent remarquablement bien au thème de couleurs de ce greffon !";
+
+/* File: Source/gui/DownloadDbComponent.cpp:123 */
+"For more information, see:" = "Pour de plus amples informations, voir :";
+
+/* File: Source/gui/TabPreferences.cpp:39 */
+"Help" = "Aide";
+
+/* File: Source/gui/TabPreferences.cpp:280 */
+/* File: Source/gui/TabPreferences.cpp:303 */
+/* File: Source/gui/TabPreferences.cpp:357 */
+"HybridReverb2 needs to be restarted to make your changes effective." = "HybridReverb2 doit être redémarré afin de rendre les changements effectifs.";
+
+/* File: Source/gui/DownloadDbComponent.cpp:62 */
+/* File: Source/gui/DownloadDbComponent.cpp:66 */
+/* Flag: untranslated */
+"HybridReverb2_large_database.zip" = "HybridReverb2_large_database.zip";
+
+/* File: Source/gui/TabMain.cpp:142 */
+"Impulse Response" = "Réponse Impulsionnelle";
+
+/* File: Source/gui/TabPreferences.cpp:279 */
+/* File: Source/gui/TabPreferences.cpp:302 */
+/* File: Source/gui/TabPreferences.cpp:356 */
+"Info" = "Info";
+
+/* File: Source/gui/TabMain.cpp:158 */
+"Initial Gap" = "Intervalle Initial";
+
+/* File: Source/gui/DownloadDbComponent.cpp:104 */
+"Install the file:" = "Installer le fichier :";
+
+/* File: Source/MasterAndCommander.cpp:68 */
+"Invalid preset file. Please choose another file to open..." = "Fichier de préréglages invalide. Veuillez choisir un autre fichier à ouvrir...";
+
+/* File: Source/gui/TabPreferences.cpp:94 */
+"Latency:" = "Latence :";
+
+/* File: Source/gui/TabMain.cpp:179 */
+"Length" = "Durée";
+
+/* File: Source/gui/DownloadDbComponent.cpp:46 */
+"Load database file..." = "Charger fichier de données...";
+
+/* File: Source/gui/TabPreferences.cpp:87 */
+"Lowest Mean Processing Load" = "Charge de Calcul à Moindre Moyenne";
+
+/* File: Source/gui/EditorComponent.cpp:47 */
+"Main" = "Général";
+
+/* File: Source/gui/TabMain.cpp:47 */
+"Main Controls" = "Contrôles Principaux";
+
+/* File: Source/gui/TabMain.cpp:260 */
+"Master Gain" = "Gain Global";
+
+/* File: Source/gui/TabModulation.cpp:38 */
+"Modulation Configuration" = "Configuration de la Modulation";
+
+/* File: Source/gui/TabPresetEditor.cpp:66 */
+/* File: Source/gui/TabMain.cpp:41 */
+"Notes" = "Notes";
+
+/* File: Source/gui/TabPresetEditor.cpp:341 */
+"Open..." = "Ouvrir...";
+
+/* File: Source/gui/Editor.cpp:90 */
+"Please choose a file to load..." = "Veuillez choisir un fichier à charger...";
+
+/* File: Source/gui/TabMain.cpp:200 */
+"Pre-Delay" = "Délai Amont";
+
+/* File: Source/gui/EditorComponent.cpp:73 */
+"Preferences" = "Préférences";
+
+/* File: Source/gui/EditorComponent.cpp:67 */
+"Preset Editor" = "Éditeur de Préréglages";
+
+/* File: Source/gui/TabPreferences.cpp:45 */
+"Preset File:" = "Fichier de Préréglages :";
+
+/* File: Source/gui/TabPreferences.cpp:131 */
+"Preset File:\n\nThis XML file defines the preset set.\n(default: HybridReverb2_presets.xml)\n\n\nLatency:\n\nHybridReverb2 convolves the input signal with room impulse responses which are partitioned into segments of different size. This option specifies the size of the initial segments which introduce a certain processing latency. A small segment size results in a lower latency at the cost of a higher computational complexity. An effect plugin for musical instruments requires signal processing with low latency. If the latency is not relevant for your application, you can choose a larger segment size for better performance.\n\n\nSegmentation Strategy:\n\n\"Uniform Processing Load\": This strategy tries to avoid processing load peaks at the cost of a slightly higher mean processing load. This is the recommended choice for signal processing with low latency.\n\"Lowest Mean Processing Load\": This strategy results in the best overall performance. This is the recommended choice for offline rendering." = "Fichier de préréglages:\n\nCe fichier XML définit l'ensemble de préréglages.\n(par défaut : HybridReverb2_presets.xml)\n\n\nLatence :\n\nHybridReverb2 convolue le signal d'entrée avec des réponses impulsionnelles de salles qui sont partitionnées en segments de différentes tailles. Cette option définit la taille des segments initiaux qui introduisent une certaine latence de calcul. Une taille de segment réduite aboutit à une latence plus faible en contrepartie d'une complexité de calcul plus élevée. Un greffon d'effet pour instruments de musique requiert un traitement de signal à faible latence. Si la latence est sans importance pour votre utilisation, vous pouvez choisir une taille de segment plus grande pour de meilleures performances.\n\n\nStratégie de Segmentation :\n\n\"Charge de Calcul Uniforme\" : Cette stratégie tente d'éviter les pics de charge de calcul, augmentant légèrement la charge de calcul moyenne. Il s'agit du choix recommandé pour un traitement du signal à faible latence.\n\"Charge de Calcul à Moindre Moyenne\" : Cette stratégie aboutit au niveau de performance globalement le plus élevé. Il s'agit du choix recommandé pour un rendu en différé.";
+
+/* File: Source/gui/TabPresetEditor.cpp:42 */
+"Preset Selection" = "Sélection du Préréglage";
+
+/* File: Source/gui/TabMain.cpp:67 */
+"Preset Selector" = "Sélecteur de Préréglage";
+
+/* File: Source/gui/TabPresetEditor.cpp:320 */
+"Save" = "Enregistrer";
+
+/* File: Source/gui/TabPresetEditor.cpp:327 */
+"Save as..." = "Enregistrer sous...";
+
+/* File: Source/gui/TabPreferences.cpp:69 */
+"Segmentation Strategy" = "Stratégie de Segmentation";
+
+/* File: Source/gui/DownloadDbComponent.cpp:39 */
+"Setup Preset Database" = "Installer la Base de Données de Préréglages";
+
+/* File: Source/gui/TabTimbre.cpp:62 */
+"Smoothing Factor:" = "Taux de Lissage :";
+
+/* File: Source/gui/TabPresetEditor.cpp:72 */
+"Tag:" = "Désignation :";
+
+/* File: Source/gui/DownloadDbComponent.cpp:162 */
+"These impulse responses are property of the Institute of Communication Acoustics, Ruhr Universität Bochum, Germany. They used to be released as \"free for non-commercial use\" but are now released under the CC-BY-SA 4.0 license since July 2018, thanks to Prof. Dr.-Ing. Rainer Martin." = "Ces réponses impulsionnelles sont la propriété de l'Institut d'Acoustique de Communication, Ruhr Universität Bochum, Allemagne. Elles étaient auparavant disponibles sous condition de \"gratuité pour usage non-commercial\" mais sont désormais distribuées sous licence CC-BY-SA 4.0 depuis Juillet 2018, grâce au Prof. Dr.-Ing. Rainer Martin.";
+
+/* File: Source/gui/DownloadDbComponent.cpp:142 */
+"They were generated with the \"tinyAVE\" software." = "Elles ont été générées par le logiciel \"tinyAVE\".";
+
+/* File: Source/gui/DownloadDbComponent.cpp:52 */
+"This software must install some impulse responses to continue." = "Ce logiciel nécessite l'installation de réponses impulsionnelles pour continuer.";
+
+/* File: Source/gui/EditorComponent.cpp:61 */
+"Timbre" = "Timbre";
+
+/* File: Source/gui/TabPreferences.cpp:77 */
+"Uniform Processing Load" = "Charge de Calcul Uniforme";
+
+/* File: Source/gui/TabPresetEditor.cpp:127 */
+"Wavefile: L->L" = "Fichier Wave : L->L";
+
+/* File: Source/gui/TabPresetEditor.cpp:138 */
+"Wavefile: L->R" = "Fichier Wave : L->R";
+
+/* File: Source/gui/TabPresetEditor.cpp:149 */
+"Wavefile: R->L" = "Fichier Wave : R->L";
+
+/* File: Source/gui/TabPresetEditor.cpp:160 */
+"Wavefile: R->R" = "Fichier Wave : R->R";
+
+/* File: Source/gui/TabMain.cpp:249 */
+"Wet Gain" = "Gain Traitement";
+
+/* File: Source/gui/TabTimbre.cpp:41 */
+"Wet Timbre" = "Timbre du Signal Traité";
+
+/* File: Source/gui/TabPreferences.cpp:57 */
+"XML formatted preset file" = "Fichier de préréglage en format XML";
+
+/* File: Source/gui/IRPlot.cpp:114 */
+/* File: Source/gui/TabMain.cpp:356 */
+/* File: Source/gui/TabMain.cpp:359 */
+/* File: Source/gui/TabMain.cpp:362 */
+/* File: Source/gui/TabMain.cpp:365 */
+/* File: Source/gui/TabMain.cpp:368 */
+/* File: Source/gui/TabMain.cpp:371 */
+/* File: Source/gui/TabMain.cpp:374 */
+"dB" = "dB";
+
+/* File: Source/gui/TabMain.cpp:390 */
+"distance: 16m" = "distance : 16m";
+
+/* File: Source/gui/TabMain.cpp:124 */
+/* File: Source/gui/TabMain.cpp:386 */
+"distance: 1m" = "distance : 1m";
+
+/* File: Source/gui/TabMain.cpp:387 */
+"distance: 2m" = "distance : 2m";
+
+/* File: Source/gui/TabMain.cpp:388 */
+"distance: 4m" = "distance : 4m";
+
+/* File: Source/gui/TabMain.cpp:389 */
+"distance: 8m" = "distance : 8m";
+
+/* File: Source/gui/DownloadDbComponent.cpp:114 */
+/* File: Source/gui/DownloadDbComponent.cpp:117 */
+/* File: Source/gui/DownloadDbComponent.cpp:118 */
+/* Flag: untranslated */
+"http://www.ruhr-uni-bochum.de/ika/" = "http://www.ruhr-uni-bochum.de/ika/";
+
+/* File: Source/gui/DownloadDbComponent.cpp:133 */
+/* File: Source/gui/DownloadDbComponent.cpp:136 */
+/* File: Source/gui/DownloadDbComponent.cpp:137 */
+/* Flag: untranslated */
+"https://creativecommons.org/licenses/by-sa/4.0/" = "https://creativecommons.org/licenses/by-sa/4.0/";
+
+/* File: Source/gui/DownloadDbComponent.cpp:65 */
+/* Flag: untranslated */
+"https://github.com/jpcima/HybridReverb2-impulse-response-database/archive/v1.0.0.zip" = "https://github.com/jpcima/HybridReverb2-impulse-response-database/archive/v1.0.0.zip";
+
+/* File: Source/gui/TabPreferences.cpp:106 */
+"latency selection" = "sélection de la latence";
+
+/* File: Source/gui/TabPreferences.cpp:86 */
+"lowest overall processing load with load peaks" = "charge de calcul globalement la plus basse, avec pics éventuels";
+
+/* Comment: [UserPreSize] */
+/* File: Source/gui/IRPlot.cpp:128 */
+/* File: Source/gui/IRPlot.cpp:131 */
+/* File: Source/gui/IRPlot.cpp:197 */
+/* File: Source/gui/TabMain.cpp:347 */
+/* File: Source/gui/TabMain.cpp:353 */
+"ms" = "ms";
+
+/* File: Source/gui/TabPresetEditor.cpp:566 */
+/* File: Source/gui/TabPresetEditor.cpp:567 */
+/* File: Source/gui/TabPresetEditor.cpp:568 */
+/* File: Source/gui/TabPresetEditor.cpp:569 */
+"new category" = "nouvelle catégorie";
+
+/* File: Source/gui/TabPresetEditor.cpp:565 */
+"new preset" = "nouveau préréglage";
+
+/* File: Source/gui/TabMain.cpp:91 */
+/* File: Source/gui/TabMain.cpp:379 */
+"playback: front" = "position : avant";
+
+/* File: Source/gui/TabMain.cpp:380 */
+"playback: rear" = "position : arrière";
+
+/* File: Source/HybridReverb2Processor.cpp:109 */
+"preset nr." = "n° préréglage";
+
+/* File: Source/gui/TabMain.cpp:382 */
+"purpose: education" = "usage : éducatif";
+
+/* File: Source/gui/TabMain.cpp:113 */
+/* File: Source/gui/TabMain.cpp:384 */
+"purpose: music" = "usage : musical";
+
+/* File: Source/gui/TabMain.cpp:383 */
+"purpose: speech" = "usage : vocal";
+
+/* File: Source/gui/TabMain.cpp:392 */
+"room: bathroom" = "salle : salle de bains";
+
+/* File: Source/gui/TabMain.cpp:398 */
+"room: church" = "salle : église";
+
+/* File: Source/gui/TabMain.cpp:397 */
+"room: huge concert hall" = "salle : énorme salle de concert";
+
+/* File: Source/gui/TabMain.cpp:102 */
+/* File: Source/gui/TabMain.cpp:396 */
+"room: large concert hall" = "salle : grande salle de concert";
+
+/* File: Source/gui/TabMain.cpp:393 */
+"room: livingroom" = "salle : salon";
+
+/* File: Source/gui/TabMain.cpp:395 */
+"room: small concert hall" = "salle : petite salle de concert";
+
+/* File: Source/gui/TabMain.cpp:394 */
+"room: studio" = "salle : studio";
+
+/* File: Source/gui/IRPlot.cpp:191 */
+/* File: Source/gui/TabMain.cpp:350 */
+"s" = "s";
+
+/* File: Source/gui/TabPreferences.cpp:76 */
+"slightly higher, but constant processing load" = "charge de calcul légèrement plus élevée, mais constante";
+
+/* File: Source/gui/Editor.cpp:209 */
+"the database did not contain valid preset data." = "la base de données ne contient pas de préréglage valide.";
+
+/* File: Source/gui/Editor.cpp:223 */
+"uncompression failed" = "la décompression a échoué";
+
+/* File: Source/gui/Editor.cpp:228 */
+/* File: Source/gui/Editor.cpp:234 */
+"write failed" = "l'écriture a échoué";

@@ -1,0 +1,93 @@
+
+
+Silvet: Shift-Invariant Latent Variable Transcription
+=====================================================
+
+A polyphonic music transcription plugin.
+
+    http://code.soundsoftware.ac.uk/projects/silvet
+
+Silvet is a Vamp plugin (http://vamp-plugins.org) for automatic music
+transcription, using the method of "A Shift-Invariant Latent Variable
+Model for Automatic Music Transcription" by Emmanouil Benetos and
+Simon Dixon (see CITATION file).
+
+
+What does it do?
+----------------
+
+Silvet listens to audio recordings of music and tries to work out what
+notes are being played.
+
+To use Silvet, you need a Vamp plugin host such as Sonic Visualiser
+(http://sonicvisualiser.org). How to use the plugin will depend on the
+host, but in the case of Sonic Visualiser, you should load an audio
+file and then run Silvet Note Transcription from the Transform
+menu. This will add a note layer to your session with the
+transcription in it, which you can play back or export as a MIDI file.
+
+
+How good is it?
+---------------
+
+It's reasonable for recordings that suit it: chamber music, solo
+piano, acoustic jazz, etc. But the range of music that works well is
+quite limited at this stage.
+
+Silvet uses a probablistic latent-variable estimation method to
+decompose a Constant-Q time-frequency matrix into note activations
+using a set of spectral templates learned from recordings of solo
+instruments. This means its performance is dominated by the
+correspondence between its instrument templates and the sounds present
+in the recording.
+
+The method performs quite well (70-85% of notes identified correctly)
+for clear recordings that contain only instruments with a good
+correspondence to the known templates. In these cases its performance
+becomes limited by the note decomposition step, clustering pitch
+probabilities into note events, which is still fairly simplistic.
+
+Silvet does not yet contain any vocal templates, or templates for
+typical rock or electronic instruments. So it will usually perform
+very poorly with pop and rock music, although the results can be
+interesting anyway. Silvet also makes no attempt to transcribe
+percussion.
+
+For a formal evaluation, please refer to the 2012 edition of MIREX,
+the Music Information Retrieval Evaluation Exchange, where the basic
+method implemented in Silvet formed the BD1, BD2 and BD3 submissions
+in the Multiple F0 Tracking task:
+
+http://www.music-ir.org/mirex/wiki/2012:Multiple_Fundamental_Frequency_Estimation_%26_Tracking_Results
+
+Also refer to later editions of MIREX (2014 and 2015) for results
+obtained using the Silvet plugin itself.
+
+
+Authors
+-------
+
+The Silvet plugin code was adapted by Chris Cannam from research and a
+MATLAB implementation by Emmanouil Benetos.
+
+
+Citation, License and Use
+-------------------------
+
+If you make use of this software for any public or commercial purpose,
+we ask you to kindly mention the authors and Queen Mary, University of
+London in your user-visible documentation. We're very happy to see
+this sort of use but would much appreciate being credited, independent
+of the requirements of the software license itself (see below).
+
+If you make use of this software for academic purposes, please cite:
+
+  Emmanouil Benetos and Simon Dixon, "A Shift-Invariant Latent
+  Variable Model for Automatic Music Transcription".
+  Computer Music Journal, volume 36 no 4, 2012, pp. 81-94.
+
+(See the CITATION file for a BibTeX reference.)
+
+This plugin is Copyright 2014-2015 Queen Mary, University of
+London. It is distributed under the GNU General Public License: see
+the file COPYING for details.

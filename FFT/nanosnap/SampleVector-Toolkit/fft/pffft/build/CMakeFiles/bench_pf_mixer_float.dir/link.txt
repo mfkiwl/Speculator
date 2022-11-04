@@ -1,0 +1,1 @@
+/usr/bin/c++ -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/bench_pf_mixer_float.dir/bench_mixers.cpp.o -o bench_pf_mixer_float  libpfdsp.a -lstdc++ -lm 

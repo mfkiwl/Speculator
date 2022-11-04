@@ -1,0 +1,4 @@
+clear
+echo 'compiling'
+nvcc  -use_fast_math -arch=sm_61 -gencode=arch=compute_61,code=sm_61 --compiler-options '-fPIC -fmax-errors=1' -o test test.cpp floatmath.cu floatmatrix.cu  floatcube.cu floatfield.cu float_array.cu -lstdc++ -lluajit-5.1 -L/usr/local/cuda/lib64 -lcublas -lcudart -lcurand
+    

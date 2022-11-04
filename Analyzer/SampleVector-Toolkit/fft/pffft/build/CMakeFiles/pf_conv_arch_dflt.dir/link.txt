@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpf_conv_arch_dflt.a CMakeFiles/pf_conv_arch_dflt.dir/pf_conv.cpp.o
+/usr/bin/ranlib libpf_conv_arch_dflt.a

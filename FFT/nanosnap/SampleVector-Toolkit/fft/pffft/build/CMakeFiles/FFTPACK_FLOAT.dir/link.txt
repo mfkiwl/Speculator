@@ -1,0 +1,2 @@
+/usr/bin/ar qc libFFTPACK_FLOAT.a CMakeFiles/FFTPACK_FLOAT.dir/fftpack.c.o
+/usr/bin/ranlib libFFTPACK_FLOAT.a

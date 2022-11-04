@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -rdynamic CMakeFiles/ffttiming.dir/fftTiming.c.o -o ffttiming  ../../src/libGreenFFT.a -lm 

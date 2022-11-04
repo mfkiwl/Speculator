@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="1">
+    <title>FASST @FASST_VERSION@ </title>
+    <organization>INRIA</organization>
+    <domains enable_localSystem="true"/>
+    <options customize="always" require-scripts="true" rootVolumeOnly="true" />
+    <!-- Define documents displayed at various steps -->
+    <welcome    file="welcome.html"    mime-type="text/html" />
+    <license    file="license.html"    mime-type="text/html" />
+    <conclusion file="conclusion.html" mime-type="text/html" />
+    <!-- List all component packages -->
+    <pkg-ref id="org.system.daemon"
+             version="@FASST_VERSION@"
+             auth="root">system-component.pkg</pkg-ref>
+    <pkg-ref id="org.examples.daemon"
+             version="@FASST_VERSION@"
+             auth="root">examples-component.pkg</pkg-ref>
+    <!-- List them again here. They can now be organized
+         as a hierarchy if you want. -->
+    <choices-outline>
+        <line choice="org.system.daemon"/>
+        <line choice="org.examples.daemon"/>
+    </choices-outline>
+    <!-- Define each choice above -->
+    <choice
+        id="org.system.daemon"
+        visible="true"
+        enabled="false"
+        title="FASST system files"
+        description="FASST executables and scripts will be installed in @CMAKE_INSTALL_PREFIX@"
+        selected="true">
+      <pkg-ref id="org.system.daemon"/>
+    </choice>
+    <choice
+        id="org.examples.daemon"
+        visible="true"
+        title="FASST examples"
+        description="FASST examples: Please select the path where you want to install examples"
+        selected="true"
+        customLocation="/Users/Shared">
+      <pkg-ref id="org.examples.daemon"/>
+    </choice>
+</installer-gui-script>

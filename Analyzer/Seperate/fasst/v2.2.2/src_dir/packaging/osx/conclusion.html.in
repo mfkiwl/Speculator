@@ -1,0 +1,4 @@
+FASST is now installed in @CMAKE_INSTALL_PREFIX@.
+
+The folder containing FASST examples is now open and you can start by reading the quick starter guide (QuickStarter.txt).
+In addition, a shortcut has been created on your desktop to later easily open the FASST example folder.

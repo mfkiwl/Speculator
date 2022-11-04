@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpf_conv_dispatcher.a CMakeFiles/pf_conv_dispatcher.dir/pf_conv_dispatcher.cpp.o
+/usr/bin/ranlib libpf_conv_dispatcher.a

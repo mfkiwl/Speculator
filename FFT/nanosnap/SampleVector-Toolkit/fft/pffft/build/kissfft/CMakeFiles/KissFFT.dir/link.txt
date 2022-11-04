@@ -1,0 +1,2 @@
+/usr/bin/ar qc libKissFFT.a CMakeFiles/KissFFT.dir/kiss_fft.c.o CMakeFiles/KissFFT.dir/tools/kiss_fftr.c.o CMakeFiles/KissFFT.dir/tools/kfc.c.o
+/usr/bin/ranlib libKissFFT.a

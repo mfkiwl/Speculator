@@ -1,0 +1,23 @@
+#!/bin/bash
+# This postinstall script opens FASST example folder
+#!/bin/bash
+
+# Run the PEASS installation script
+#oldArg2=$2
+#newCar="\\ "
+#arg2=${oldArg2// /\\ }
+#echo $arg2
+
+#script_content="$arg2/FASST_@FASST_VERSION@_examples/install_peass.sh $arg2/FASST_@FASST_VERSION@_examples"
+osascript -e "tell application \"Terminal\" to do script \"$2/FASST_@FASST_VERSION@_examples/install_peass.sh $2/FASST_@FASST_VERSION@_examples\""
+#osascript -e "tell application \"Terminal\" to do script \"$script_content\""
+#open -n -a Terminal "$script_content"
+#open -n -a Terminal "$arg2/FASST_@FASST_VERSION@_examples/install_peass.sh" --args "$arg2/FASST_@FASST_VERSION@_examples"
+# Open FASST example folder
+open $2/FASST_@FASST_VERSION@_examples/
+
+# Create a desktop shortcut
+cd ~/Desktop
+rm FASST_@FASST_VERSION@_examples
+ln -s $2/FASST_@FASST_VERSION@_examples FASST_@FASST_VERSION@_examples
+exit 0

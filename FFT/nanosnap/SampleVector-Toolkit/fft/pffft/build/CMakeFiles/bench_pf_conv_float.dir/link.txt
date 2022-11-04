@@ -1,0 +1,1 @@
+/usr/bin/c++ -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/bench_pf_conv_float.dir/bench_conv.cpp.o -o bench_pf_conv_float  libpf_conv_dispatcher.a libpfdsp.a -lstdc++ libpf_conv_arch_none.a libpf_conv_arch_dflt.a libpf_conv_arch_sse3.a libpf_conv_arch_sse4.a libpf_conv_arch_avx.a libpf_conv_arch_avx2.a -lm 

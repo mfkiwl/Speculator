@@ -1,0 +1,10 @@
+*.mat
+octave-workspace
+*.o
+*.log
+*.png
+*.wav
+*~
+*.swp
+*.swo
+befft

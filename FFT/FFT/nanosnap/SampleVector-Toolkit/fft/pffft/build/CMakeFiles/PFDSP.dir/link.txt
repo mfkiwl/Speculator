@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpfdsp.a CMakeFiles/PFDSP.dir/pf_mixer.cpp.o CMakeFiles/PFDSP.dir/pf_carrier.cpp.o CMakeFiles/PFDSP.dir/pf_cic.cpp.o
+/usr/bin/ranlib libpfdsp.a

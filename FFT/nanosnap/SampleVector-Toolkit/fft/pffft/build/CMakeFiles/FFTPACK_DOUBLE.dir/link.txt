@@ -1,0 +1,2 @@
+/usr/bin/ar qc libFFTPACK_DOUBLE.a CMakeFiles/FFTPACK_DOUBLE.dir/fftpack.c.o
+/usr/bin/ranlib libFFTPACK_DOUBLE.a

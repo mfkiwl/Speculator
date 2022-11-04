@@ -1,0 +1,273 @@
+#!/usr/bin/python
+# This is an example of script for source separation of two speakers on an
+# 8 channel reverberated mixture using FASST software. This script shows
+# how to use FASST to learn models for each source during an enrollment (i.e. training step).
+# These models are learnt from a single speaker 8 channel audio stream
+# record (for each speaker) and then fixed for the mixture separation step.
+# 
+# input.wav (input file) can be divided in three parts:
+# * Part 1 (5.161 to 21.270 sec): only speaker 1 is talking (used as training data to initialize source 1 models)
+# * Part 2 (25.641 to 41.308 sec): only speaker 2 is talking (used as training data to initialize source 2 models)
+# * Part 3 (47.584 to 71.285 sec): speaker 1 and 2 are talking together (the mixture to be separated)
+# These three parts have been recorded in one record session with fixed microphone array and fixed
+# speakers (located at different positions). All pronounced sentences are different.
+# 
+# Parameters used to initialize FASST for the training step (called once for each source):
+# * Mixture type : convolutive.
+# * Number of source : one
+# * Time-Frequency representation : ERB filterbank with 64 frequency bins.
+# * Source parameter Wex : Normally distributed random matrix (default init).
+# * Source parameter Hex : Normally distributed random matrix (default init).
+# * Source parameter A : Identity for all frequencies (default init).
+# * Source parameter adaptability : free, all previous parameters are
+#   updated during the iterative EM process.
+# * Number of EM iterations : 50
+#
+# Parameters used to initialize FASST for the separation step:
+# * Mixture type : convolutive.
+# * Number of source : two
+# * Time-Frequency representation : ERB filterbank with 64 frequency bins.
+# * Source parameter Wex : Wex computed during training step for corresponding source
+# * Source parameter Hex : Normally distributed random matrix (default init).
+# * Source parameter A : A computed during training step for corresponding source
+# * Source parameter adaptability : 
+#      Hex -> free  (updated during the iterative EM process)
+#      Wex -> fixed (not updated during the iterative EM process)
+#      A   -> fixed (not updated during the iterative EM process)
+# * Number of EM iterations : 100
+#
+###########################################################################
+# Copyright 2018 Ewen Camberlein (INRIA), Romain Lebarbenchon (INRIA)
+# This software is distributed under the terms of the GNU Public License
+# version 3 (http://www.gnu.org/licenses/gpl.txt)
+###########################################################################
+
+from __future__ import division
+import numpy as np
+import os, sys
+from scipy.io import wavfile
+import shutil
+
+# ------------------------------------------------------------------------
+#                      Paths management
+# ------------------------------------------------------------------------
+
+# Path of current file
+script_path = os.path.dirname(os.path.abspath(__file__))
+
+# add tools folder to python path to import get_freqScaleParams module
+sys.path.append(script_path+"/../tools/")
+import get_freqScaleParams
+
+# Import the fasst package
+fasst_python_dir = '@FASST_PYTHON_DIR@'
+if fasst_python_dir not in sys.path:
+    sys.path.insert(0, fasst_python_dir)
+import fasst
+
+# Create temp/ , train/ and result/ directory if it does not exist
+tmp_dir = os.path.join(script_path,'temp/');
+if not os.path.exists(tmp_dir):
+    os.makedirs(tmp_dir)
+    
+results_dir = os.path.join(script_path, 'results/')
+if not os.path.exists(results_dir):
+    os.makedirs(results_dir)
+    
+train_dir = os.path.join(script_path, 'train/')
+if not os.path.exists(train_dir):
+    os.makedirs(train_dir)
+    
+# ------------------------------------------------------------------------
+#                   Mixture information
+#--------------------------------------------------------------------------
+
+# Number of sources
+J = 2
+
+# Number of channels
+I = 8
+    
+# ------------------------------------------------------------------------
+#                   Audio file configuration
+# ------------------------------------------------------------------------
+# Sampling frequency
+fs = 16000
+
+# Input file name
+wavFileName = os.path.join(script_path, 'input.wav')
+
+# Output source 1 and source 2 training data file names
+trainFileName = [os.path.join(results_dir,'src1_train.wav'),os.path.join(results_dir,'src2_train.wav')]
+
+# Output mixture file name
+mixFileName = os.path.join(results_dir,'mixture.wav')
+
+# Read the input stream
+notused,wavData = wavfile.read(wavFileName)
+
+# Extract training data (part1 and 2) from input.wav and save them as wav file
+timeStamps_trainSrc = np.round((np.array([[5.161,21.270],[25.641,41.308]]))*fs) - 1
+nbSamples_trainSrc = np.zeros(2);
+nbSamples_trainSrc[0] = timeStamps_trainSrc[0,1] - timeStamps_trainSrc[0,0] + 1
+nbSamples_trainSrc[1] = timeStamps_trainSrc[1,1] - timeStamps_trainSrc[1,0] + 1
+wavfile.write(trainFileName[0],fs,wavData[int(timeStamps_trainSrc[0,0]):int((timeStamps_trainSrc[0,1]+1))][:])
+wavfile.write(trainFileName[1],fs,wavData[int(timeStamps_trainSrc[1,0]):int((timeStamps_trainSrc[1,1]+1))][:])
+
+# Extract the mixture (part 3) from input.wav file and save it as wav file
+timeStamps_mix = np.round(np.array([47.584,71.285])*fs) - 1
+nbSamples_Mix = timeStamps_mix[1] - timeStamps_mix[0] + 1
+wavfile.write(mixFileName,fs,wavData[int(timeStamps_mix[0]):int((timeStamps_mix[1]+1))][:])
+
+# ------------------------------------------------------------------------
+#                          FASST Configuration
+#--------------------------------------------------------------------------
+
+print ('\n> FASST initialization')
+
+# --- FASST general configuration (direct inputs for FASST)
+
+transformType     = 'ERBLET'    # Time-frequency transform (STFT | ERB | ERBLET)
+wlen              = 1024        # Window length in samples (frame length in time domain) - should be multiple of 4 for STFT
+
+nbin_ERB          = 64      # Number of total frequency bins for ERB - ERB mandatory param
+nbinPerERB_ERBLET = 2       # Number of frequency bins per ERB for ERBLET (1 bin per ERB with 1600 kHz fs lead to nbin = 34 ) - ERBLET mandatory param
+
+Niteration_EM_training   = 50       # Number of iteration of EM algorithm for sources models training
+Niteration_EM_separation = 100      # Number of iteration of EM algorithm for sources separation
+
+# --- Initialization of models and FASST specific parameters for each source
+# Define necessary parameters
+N_mix          = int(np.ceil(nbSamples_Mix/wlen*2))       # Number of mixture frames
+N_trainSrcImag = np.ceil(nbSamples_trainSrc/wlen*2)       # Number of frames of training data (for each source)
+K = 32                                                    # Requested NFM rank (size of spectral patterns dictionnary)
+
+# --- Compute the number of frequency bins and the center of frequency bands / clean unused params with respect to chosen transform ---
+freqBandCenters_Hz, nbin, nbinPerERB_ERBLET, nbin_ERB =  get_freqScaleParams.run(transformType,wlen,nbin_ERB,nbinPerERB_ERBLET,fs)
+
+print'>> User Params:'
+print('   Transform: ' + transformType)
+print('     - wlen: ' + str(wlen))
+print('     - nbin: ' + str(nbin))
+print('     - nbin_ERB: ' + str(nbin_ERB))
+print('     - nbinPerERB_ERBLET: ' + str(nbinPerERB_ERBLET))
+print('   J (number of sources): ' + str(J))
+print('   K (NMF rank): ' + str(K))
+
+# ------------------------------------------------------------------------
+#     Training step (FASST structure initialization and processing)
+#--------------------------------------------------------------------------
+# Define FASST data structure
+FASST_data = {}
+FASST_data['tfr_type']   = transformType
+FASST_data['wlen']       = wlen;
+FASST_data['nbin']       = nbin;
+FASST_data['nbinPerERB_ERBLET'] = nbinPerERB_ERBLET;
+FASST_data['iterations'] = Niteration_EM_training;
+
+for j in range(J):
+    sources = []
+    source = {}
+    source['name'] = 'train_' + str(j)
+    source['A'] = {}
+    source['A']['mixingType'] = 'conv'    # Convolutive mixture
+    source['A']['adaptability'] = 'free'  # Will be adapted by FASST
+    source['A']['data'] = np.tile(np.identity(I)[:,:,np.newaxis], [1,1,nbin]) # init with identity
+    
+    # Spectral patterns (Wex) and time activation patterns applied to spectral patterns (Hex)   
+    source['Wex'] = {}
+    source['Wex']['adaptability'] = 'free' # Will be adapted by FASST
+    source['Wex']['data'] = 0.75 * abs(np.random.randn(nbin, K)) + 0.25 * np.ones((nbin, K)) # Random init
+    source['Hex'] = {}
+    source['Hex']['data'] = 0.75 * abs(np.random.randn(K, int(N_trainSrcImag[j]))) + 0.25 * np.ones((K, int(N_trainSrcImag[j]))) # Random init
+    source['Hex']['adaptability'] = 'free' # Will be adapted by FASST
+    
+    # Wiener filter parameters 
+    source['wiener'] = {}
+    source['wiener']['a']  = 0             # a  : Over-substraction parameter (in dB) - Default value = 0 
+    source['wiener']['b']  = 0             # b  : Phase ponderation parameter (between [0,1]) - Default value = 0 
+    source['wiener']['c1'] = 0             # c1 : Half-time width of the covariance smoothing window ( c1 >= 0) - Default value = 0 
+    source['wiener']['c2'] = 0             # c2 : Half-frequency width of the covariance smoothing window ( c2 >= 0) - Default value = 0 
+    source['wiener']['d']  = float("-inf") # d  : Thresholding parameter ( in dB, d <= 0) - Default value = -Inf
+
+    sources.append(source)
+    
+    FASST_data['sources'] = sources
+    
+    # Write parameters to XML
+    xml_fname = os.path.join(train_dir,'sources' + str(j) + '.xml');
+    fasst.writeXML(xml_fname, FASST_data)
+    print '\n> FASST processing: models training for source #' + str(j)
+    print '>> Input time-frequency representation'
+    fasst.compute_mixture_covariance_matrix(trainFileName[j], xml_fname, train_dir)
+
+    print '>> Refinement of sources models (EM algorithm)'
+    fasst.estimate_source_parameters(xml_fname, train_dir, xml_fname + '.new')
+
+# ------------------------------------------------------------------------
+#             Separation step (FASST structure initialization)
+# --------------------------------------------------------------------------    
+# Define FASST data structure
+FASST_data = {}
+FASST_data['tfr_type']   = transformType
+FASST_data['wlen']       = wlen;
+FASST_data['nbin']       = nbin;
+FASST_data['nbinPerERB_ERBLET'] = nbinPerERB_ERBLET;
+FASST_data['iterations'] = Niteration_EM_separation;
+sources = []
+
+for j in range(J):
+    source = {}
+    
+    # Load trained A and Wex models of source j
+    trained_source = fasst.loadXML(os.path.join(train_dir,'sources' + str(j) + '.xml.new'));
+    
+    # Name of output audio file for source j
+    source['name'] = 'EstimatedSource_' + str(j+1) # j+1 is just to keep the same source indexing than Matlab script
+    source['A'] = {}
+    source['A']['mixingType'] = 'conv'    # Convolutive mixture
+    source['A']['adaptability'] = 'fixed' # Previously learnt, so fixed
+    source['A']['data'] = trained_source['sources'][0]['A']['data'] # Initialize with trained model A
+    
+    # Spectral patterns (Wex) and time activation patterns applied to spectral patterns (Hex)
+    source['Wex'] = {}
+    source['Wex']['adaptability'] = 'fixed' # Previously learnt, so fixed
+    source['Wex']['data'] = trained_source['sources'][0]['Wex']['data'] # Initialize with trained model Wex
+    source['Hex'] = {}
+    source['Hex']['data'] = 0.75 * abs(np.random.randn(K, N_mix)) + 0.25 * np.ones((K, N_mix)) # Random init
+    source['Hex']['adaptability'] = 'free' # Will be adapted by FASST
+    
+    # Wiener filter parameters 
+    source['wiener'] = {}
+    source['wiener']['a']  = 0             # a  : Over-substraction parameter (in dB) - Default value = 0 
+    source['wiener']['b']  = 0             # b  : Phase ponderation parameter (between [0,1]) - Default value = 0 
+    source['wiener']['c1'] = 0             # c1 : Half-time width of the covariance smoothing window ( c1 >= 0) - Default value = 0 
+    source['wiener']['c2'] = 0             # c2 : Half-frequency width of the covariance smoothing window ( c2 >= 0) - Default value = 0 
+    source['wiener']['d']  = float("-inf") # d  : Thresholding parameter ( in dB, d <= 0) - Default value = -Inf
+    
+    sources.append(source)
+
+# Write parameters to XML
+FASST_data['sources'] = sources
+xml_fname = os.path.join(tmp_dir,'sources.xml');
+fasst.writeXML(xml_fname, FASST_data)
+
+# ------------------------------------------------------------------------
+#                  Separation step (FASST processing)
+# ------------------------------------------------------------------------
+print '\n> FASST processing: mixture separation'
+
+print '>> Input time-frequency representation'
+fasst.compute_mixture_covariance_matrix(mixFileName, xml_fname, tmp_dir)
+
+print '>> Refinement of sources models (EM algorithm)'
+fasst.estimate_source_parameters(xml_fname, tmp_dir, xml_fname + '.new')
+
+print '>> Computation of estimated sources'
+fasst.estimate_sources(mixFileName, xml_fname + '.new',tmp_dir, results_dir)
+
+# Delete temporary folder
+shutil.rmtree(tmp_dir)
+
+# Delete train folder
+shutil.rmtree(train_dir)

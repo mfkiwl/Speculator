@@ -1,0 +1,33 @@
+[submodule "tfp"]
+	path = tfp
+	url = https://github.com/TheComet/tfp
+[submodule "TransferFunction"]
+	path = TransferFunction
+	url = https://github.com/SadZombik/TransferFunction
+[submodule "TransferFunctionPlotter"]
+	path = TransferFunctionPlotter
+	url = https://github.com/KerryL/TransferFunctionPlotter
+[submodule "transfer_function"]
+	path = transfer_function
+	url = https://github.com/borodziejciesla/transfer_function
+[submodule "Symbolic-Transfer-Function"]
+	path = Symbolic-Transfer-Function
+	url = https://github.com/DKT19/Symbolic-Transfer-Function
+[submodule "CalcTF"]
+	path = CalcTF
+	url = https://github.com/MafuraG/CalcTF
+[submodule "KTransFunc"]
+	path = KTransFunc
+	url = https://github.com/kikuuwe/KTransFunc
+[submodule "Zevaluator"]
+	path = Zevaluator
+	url = https://github.com/skrynnyk/Zevaluator
+[submodule "tfest"]
+	path = tfest
+	url = https://github.com/giuliovv/tfest
+[submodule "etfe"]
+	path = etfe
+	url = https://github.com/epezent/etfe
+[submodule "genac"]
+	path = genac
+	url = https://github.com/gokhanettin/genac

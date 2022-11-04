@@ -1,0 +1,16 @@
+require('vf')
+a = vf.Matrix(3,3)
+for i=0,2 do
+for j=0,2 do
+a[i][j] = i*3 + j 
+end 
+end 
+a:upload_device()
+print(a:sum())
+r = a*a
+r:print()
+r:sigmoid()
+print(r[0][0])
+r:print()
+print(r[0][1])r:sigmoid_deriv()
+r:print()

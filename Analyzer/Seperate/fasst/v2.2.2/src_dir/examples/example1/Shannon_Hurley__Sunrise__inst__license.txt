@@ -1,0 +1,6 @@
+LICENSE
+
+License: Creative Commons Attribution-NonCommercial 3.0
+Please read: http://creativecommons.org/licenses/by-nc/3.0/
+
+The authors are Shannon Hurley for music source signals, Michel Desnoues and Alexey Ozerov for mixture signal, and Alexey Ozerov for separated source signals.

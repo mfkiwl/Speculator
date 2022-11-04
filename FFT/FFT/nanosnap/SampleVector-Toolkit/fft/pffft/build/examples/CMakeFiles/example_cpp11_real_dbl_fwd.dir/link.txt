@@ -1,0 +1,1 @@
+/usr/bin/c++ -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/example_cpp11_real_dbl_fwd.dir/example_cpp11_real_dbl_fwd.cpp.o -o example_cpp11_real_dbl_fwd  ../libpffft.a -lm 

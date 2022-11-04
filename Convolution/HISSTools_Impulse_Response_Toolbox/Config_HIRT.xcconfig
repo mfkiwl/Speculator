@@ -1,0 +1,68 @@
+
+// Xcode target configuration settings
+
+PRODUCT_NAME = $TARGET_NAME
+
+// Paths
+
+C74SUPPORT = $(SRCROOT)/../max-sdk-base/c74support
+HEADER_SEARCH_PATHS = "$(SRCROOT)/HISSTools_IR_Toolbox_Dependencies/" "$(SRCROOT)/HISSTools_IR_Toolbox_Common/" "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes" "$(C74SUPPORT)/jit-includes"
+FRAMEWORK_SEARCH_PATHS = "$(C74SUPPORT)/max-includes" "$(C74SUPPORT)/msp-includes" "$(C74SUPPORT)/jit-includes"
+
+// Special Files
+
+GCC_PREFIX_HEADER = $(C74SUPPORT)/max-includes/macho-prefix.pch
+INFOPLIST_FILE = Info.plist
+
+// Per architecture and deployment settings
+
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+
+// C++ Version
+
+CLANG_CXX_LANGUAGE_STANDARD = c++11
+CLANG_CXX_LIBRARY = libc++
+
+// This matches with Cycling's maximum backward compatibility
+
+BASE_SDK = 10.11
+MACOSX_DEPLOYMENT_TARGET = 10.11
+
+// Build a Universal Binary
+
+ARCHS = x86_64 arm64
+
+// Set Bundel Identifier
+
+PRODUCT_BUNDLE_IDENTIFIER = HISSTools.${TARGET_NAME:rfc1034identifier}
+
+// We define this so as to support backward compatibility (this prevents using Max6 only translation symbol generation)
+
+GCC_PREPROCESSOR_DEFINITIONS = "DENORM_WANT_FIX = 1" "NO_TRANSLATION_SUPPORT = 1"
+
+// To turn of install on build set SKIP_INSTALL to YES or set DSTROOT to the desired location if different
+
+SKIP_INSTALL = NO
+DEPLOYMENT_LOCATION = YES
+DSTROOT = $(SRCROOT)/HISSTools_Packaging/HISSTools Impulse Response Toolbox (HIRT)/externals/HIRT_externals_OSX
+INSTALL_PATH = /
+COPY_PHASE_STRIP = NO
+
+// Static Configuration (don't change these)
+
+WRAPPER_EXTENSION = mxo
+GENERATE_PKGINFO_FILE = YES
+
+// Turn off C99 to minimise time spent working in Visual Studio
+
+WARNING_CFLAGS = -Wall -Wno-four-char-constants -Wno-unknown-pragmas -Wdeclaration-after-statement -Wno-deprecated-declarations -Werror
+
+// Flags to enforce some build-time checks for the symbols used while not actually performing a hard link
+C74_SYM_LINKER_FLAGS = @$(C74SUPPORT)/max-includes/c74_linker_flags.txt
+
+OTHER_LDFLAGS = -framework MaxAudioAPI -framework Accelerate $(C74_SYM_LINKER_FLAGS)
+
+// hide all symbols by default
+// mark a function to be exported with the C74_EXPORT macro -- most likely this will only apply to the main() function
+
+OTHER_CFLAGS = -fvisibility=hidden

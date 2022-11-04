@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpffastconv.a CMakeFiles/PFFASTCONV.dir/pffastconv.c.o
+/usr/bin/ranlib libpffastconv.a

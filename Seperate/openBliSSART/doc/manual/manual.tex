@@ -1,0 +1,101 @@
+%
+% vim:set expandtab tabstop=4 shiftwidth=4:
+%
+
+
+\documentclass[a4paper,11pt]{book}
+\usepackage{amsfonts,amsthm,amsmath,amssymb,amsbsy,hyperref,float}
+\usepackage{graphicx,verbatim,framed}
+\usepackage[latin1]{inputenc}
+\usepackage{multirow}
+
+
+\floatplacement{figure}{H}
+\floatplacement{table}{H}
+
+
+\newcommand{\setR}{\ensuremath{\mathbb{R}}}
+\newcommand{\setN}{\ensuremath{\mathbb{N}}}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\myspan}{\mbox{span}}
+\newcommand{\bv}[1]{\mathbf{#1}} %\ensuremath{\mbox{\boldmath$#1$}}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\ie}{i.\,e.\ }
+\newcommand{\eg}{e.\,g.\ }
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\setcounter{secnumdepth}{3}
+
+
+\sloppy
+\raggedbottom
+\frenchspacing
+\clubpenalties 3 10000 10000 100
+\widowpenalties 3 10000 10000 100
+
+
+\hyphenation{openBliSSART}
+
+
+\author{
+    Felix Weninger\thanks{weninger@tum.de}\\TU M\"unchen
+    \and Alexander Lehmann\thanks{lehmanna@in.tum.de}\\TU M\"unchen
+    \and Bj\"orn Schuller\thanks{schuller@tum.de}\\TU M\"unchen
+}
+\date{Version 1.2, May 2010}
+\title{
+    openBliSSART\\[0.5cm]
+    User Manual
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\newpage
+
+
+\tableofcontents
+
+
+%\newpage
+
+
+\chapter{Overview}
+\label{chapter:Overview}
+\input{overview}
+
+
+%\newpage
+
+
+\chapter{Tutorial}
+\label{chapter:Tutorial}
+\input{tutorial}
+
+
+%\newpage
+
+
+\chapter{openBliSSART Internals}
+\label{chapter:RefManual}
+\input{reference_manual}
+
+
+\chapter{Toolbox}
+\label{chapter:Toolbox}
+\input{toolbox}
+
+
+\clearpage
+
+
+\bibliographystyle{IEEEbib}
+\bibliography{bibliography}
+
+
+\end{document}

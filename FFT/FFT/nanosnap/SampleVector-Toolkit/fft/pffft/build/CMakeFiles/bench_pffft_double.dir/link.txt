@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/bench_pffft_double.dir/bench_pffft.c.o -o bench_pffft_double  libpffft.a libFFTPACK_DOUBLE.a pocketfft/libPocketFFT.a -lm 

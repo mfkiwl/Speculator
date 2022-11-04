@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/test_fftpack_float.dir/fftpack.c.o -o test_fftpack_float  -lm 

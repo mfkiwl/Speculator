@@ -1,0 +1,10 @@
+
+Builds/MacOSX/build/
+
+*.tsv
+
+*.sweepandir
+
+*.sublime-project
+
+*.sublime-workspace

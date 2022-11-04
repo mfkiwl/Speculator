@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/test_fft_factors.dir/test_fft_factors.c.o -o test_fft_factors  libpffft.a -lm 

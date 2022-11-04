@@ -1,0 +1,2 @@
+/usr/bin/ar qc libGreenFFT.a CMakeFiles/GreenFFT.dir/dxpose.c.o CMakeFiles/GreenFFT.dir/fft2d.c.o CMakeFiles/GreenFFT.dir/fftext.c.o CMakeFiles/GreenFFT.dir/fftlib.c.o CMakeFiles/GreenFFT.dir/matlib.c.o
+/usr/bin/ranlib libGreenFFT.a

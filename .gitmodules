@@ -1,0 +1,324 @@
+[submodule "tinyfft"]
+	path = tinyfft
+	url = https://github.com/ryuhei-mori/tinyfft
+[submodule "VkFFT"]
+	path = VkFFT
+	url = https://github.com/DTolm/VkFFT
+[submodule "fft_band_equalizer"]
+	path = fft_band_equalizer
+	url = https://github.com/kappalabs/fft_band_equalizer
+[submodule "CMatrix"]
+	path = CMatrix
+	url = https://github.com/jd-m/CMatrix
+[submodule "Analyzer/Spectrum/cqt-analyzer"]
+	path = Analyzer/Spectrum/cqt-analyzer
+	url = https://github.com/jmerkt/cqt-analyzer
+[submodule "Analyzer/Vamp/rt-vamp-plugin-sdk"]
+	path = Analyzer/Vamp/rt-vamp-plugin-sdk
+	url = https://github.com/lukasberbuer/rt-vamp-plugin-sdk
+[submodule "Analyzer/Vamp/sonic-annotator"]
+	path = Analyzer/Vamp/sonic-annotator
+	url = https://github.com/sonic-visualiser/sonic-annotator.git
+[submodule "Analyzer/Vamp/vampy-host"]
+	path = Analyzer/Vamp/vampy-host
+	url = https://github.com/c4dm/vampy-host.git
+[submodule "Analyzer/Vamp/MazurkaPlugins"]
+	path = Analyzer/Vamp/MazurkaPlugins
+	url = https://github.com/craigsapp/MazurkaPlugins.git
+[submodule "Analyzer/Vamp/piper-vamp-js"]
+	path = Analyzer/Vamp/piper-vamp-js
+	url = https://github.com/piper-audio/piper-vamp-js.git
+[submodule "Analyzer/Vamp/gst-plugin-vamp"]
+	path = Analyzer/Vamp/gst-plugin-vamp
+	url = https://github.com/nicobou/gst-plugin-vamp.git
+[submodule "Analyzer/Vamp/etno-segmenter"]
+	path = Analyzer/Vamp/etno-segmenter
+	url = https://github.com/jleben/etno-segmenter.git
+[submodule "Analyzer/Vamp/tuning-difference"]
+	path = Analyzer/Vamp/tuning-difference
+	url = https://github.com/cannam/tuning-difference.git
+[submodule "Analyzer/Vamp/match-vamp"]
+	path = Analyzer/Vamp/match-vamp
+	url = https://github.com/c4dm/match-vamp.git
+[submodule "Analyzer/Vamp/vamp-alsa-host"]
+	path = Analyzer/Vamp/vamp-alsa-host
+	url = https://github.com/sensorgnome-org/vamp-alsa-host.git
+[submodule "Analyzer/Vamp/vamp-live"]
+	path = Analyzer/Vamp/vamp-live
+	url = https://github.com/cgreenhalgh/vamp-live.git
+[submodule "Analyzer/Vamp/vamp-plugin-sdk"]
+	path = Analyzer/Vamp/vamp-plugin-sdk
+	url = https://github.com/c4dm/vamp-plugin-sdk
+[submodule "Analyzer/Vamp/bbc-vamp-plugins"]
+	path = Analyzer/Vamp/bbc-vamp-plugins
+	url = https://github.com/bbc/bbc-vamp-plugins.git
+[submodule "Analyzer/Vamp/miredu"]
+	path = Analyzer/Vamp/miredu
+	url = https://github.com/MTG/miredu.git
+[submodule "Analyzer/Vamp/constant-q-cpp"]
+	path = Analyzer/Vamp/constant-q-cpp
+	url = https://github.com/cannam/constant-q-cpp.git
+[submodule "Analyzer/Vamp/qm-vamp-plugins"]
+	path = Analyzer/Vamp/qm-vamp-plugins
+	url = https://github.com/c4dm/qm-vamp-plugins.git
+[submodule "Analyzer/Vamp/vampeyer"]
+	path = Analyzer/Vamp/vampeyer
+	url = https://github.com/bbc/vampeyer.git
+[submodule "Analyzer/Vamp/vampy"]
+	path = Analyzer/Vamp/vampy
+	url = https://github.com/c4dm/vampy.git
+[submodule "Analyzer/Vamp/vampdeepspeech"]
+	path = Analyzer/Vamp/vampdeepspeech
+	url = https://github.com/Mortal/vampdeepspeech.git
+[submodule "Analyzer/Vamp/vamp-live-host"]
+	path = Analyzer/Vamp/vamp-live-host
+	url = https://github.com/chrisbaume/vamp-live-host.git
+[submodule "Analyzer/Vamp/cepstral-pitchtracker"]
+	path = Analyzer/Vamp/cepstral-pitchtracker
+	url = https://github.com/cannam/cepstral-pitchtracker.git
+[submodule "Analyzer/Vamp/mazurka-plugins"]
+	path = Analyzer/Vamp/mazurka-plugins
+	url = https://github.com/luoq/mazurka-plugins.git
+[submodule "Analyzer/Vamp/UAVampPlugins"]
+	path = Analyzer/Vamp/UAVampPlugins
+	url = https://github.com/pertusa/UAVampPlugins.git
+[submodule "Analyzer/Vamp/nnls-chroma"]
+	path = Analyzer/Vamp/nnls-chroma
+	url = https://github.com/c4dm/nnls-chroma.git
+[submodule "Analyzer/Vamp/vamp-plugins"]
+	path = Analyzer/Vamp/vamp-plugins
+	url = https://github.com/jbrzusto/vamp-plugins.git
+[submodule "Analyzer/Vamp/bitstream_autocorrelation_vamp"]
+	path = Analyzer/Vamp/bitstream_autocorrelation_vamp
+	url = https://github.com/xavriley/bitstream_autocorrelation_vamp.git
+[submodule "Analyzer/Vamp/vamp-test-plugin"]
+	path = Analyzer/Vamp/vamp-test-plugin
+	url = https://github.com/c4dm/vamp-test-plugin.git
+[submodule "Analyzer/Vamp/piper-vamp-cpp"]
+	path = Analyzer/Vamp/piper-vamp-cpp
+	url = https://github.com/piper-audio/piper-vamp-cpp.git
+[submodule "Analyzer/Vamp/SURA-PROJECT"]
+	path = Analyzer/Vamp/SURA-PROJECT
+	url = https://github.com/kg1994/SURA-PROJECT.git
+[submodule "Analyzer/Vamp/Galen-HonoursAudioAnalysis"]
+	path = Analyzer/Vamp/Galen-HonoursAudioAnalysis
+	url = https://github.com/GRodger99/Galen-HonoursAudioAnalysis.git
+[submodule "Analyzer/Vamp/wunderwelt-vamp-plugins"]
+	path = Analyzer/Vamp/wunderwelt-vamp-plugins
+	url = https://github.com/scriptator/wunderwelt-vamp-plugins.git
+[submodule "Analyzer/Vamp/vamp-plugin-load-checker"]
+	path = Analyzer/Vamp/vamp-plugin-load-checker
+	url = https://github.com/sonic-visualiser/vamp-plugin-load-checker.git
+[submodule "Analyzer/Vamp/python-vamp-plugin"]
+	path = Analyzer/Vamp/python-vamp-plugin
+	url = https://github.com/ech2/python-vamp-plugin.git
+[submodule "Analyzer/Vamp/scorep_substrate_vampir_groups_writer"]
+	path = Analyzer/Vamp/scorep_substrate_vampir_groups_writer
+	url = https://github.com/score-p/scorep_substrate_vampir_groups_writer.git
+[submodule "Analyzer/audiosignalanalyzer"]
+	path = Analyzer/audiosignalanalyzer
+	url = https://github.com/javiervalcarce/audiosignalanalyzer
+[submodule "Analyzer/speclet"]
+	path = Analyzer/speclet
+	url = https://github.com/JohT/speclet
+[submodule "Analyzer/SpectrumAnalyzer"]
+	path = Analyzer/SpectrumAnalyzer
+	url = https://github.com/EricMiddleton1/SpectrumAnalyzer
+[submodule "Analyzer/essentiaPlugin"]
+	path = Analyzer/essentiaPlugin
+	url = https://github.com/leozimmerman/essentiaPlugin
+[submodule "Analyzer/SigDigger"]
+	path = Analyzer/SigDigger
+	url = https://github.com/BatchDrake/SigDigger
+[submodule "Analyzer/spectacle"]
+	path = Analyzer/spectacle
+	url = https://github.com/jpcima/spectacle
+[submodule "Analyzer/spectral-profiler"]
+	path = Analyzer/spectral-profiler
+	url = https://github.com/jpcima/spectral-profiler
+[submodule "Analyzer/etfe"]
+	path = Analyzer/etfe
+	url = https://github.com/epezent/etfe
+[submodule "Analyzer/ofxAudioAnalyzer"]
+	path = Analyzer/ofxAudioAnalyzer
+	url = https://github.com/leozimmerman/ofxAudioAnalyzer
+[submodule "Analyzer/essentia_wrapper"]
+	path = Analyzer/essentia_wrapper
+	url = https://github.com/MX-Dev/essentia_wrapper
+[submodule "SpectralAnalyzer"]
+	path = SpectralAnalyzer
+	url = https://github.com/ttesileanu/SpectralAnalyzer
+[submodule "Analyzer/my-voice-analysis"]
+	path = Analyzer/my-voice-analysis
+	url = https://github.com/Shahabks/my-voice-analysis
+[submodule "Analyzer/in-formant"]
+	path = Analyzer/in-formant
+	url = https://github.com/in-formant/in-formant
+[submodule "Analyzer/DeepFormants"]
+	path = Analyzer/DeepFormants
+	url = https://github.com/MLSpeech/DeepFormants
+[submodule "Analyzer/klatt-syn"]
+	path = Analyzer/klatt-syn
+	url = https://github.com/chdh/klatt-syn
+[submodule "Analyzer/transformant"]
+	path = Analyzer/transformant
+	url = https://github.com/igorski/transformant
+[submodule "Analyzer/FAAV"]
+	path = Analyzer/FAAV
+	url = https://github.com/JoFrhwld/FAAV
+[submodule "Analyzer/KlattSynth"]
+	path = Analyzer/KlattSynth
+	url = https://github.com/proteusvacuum/KlattSynth
+[submodule "Analyzer/formantfeatures"]
+	path = Analyzer/formantfeatures
+	url = https://github.com/tabahi/formantfeatures
+[submodule "Analyzer/Formant"]
+	path = Analyzer/Formant
+	url = https://github.com/fdeste/Formant
+[submodule "Analyzer/LPC_Formant_Analysis"]
+	path = Analyzer/LPC_Formant_Analysis
+	url = https://github.com/khandelwalkshitij/LPC_Formant_Analysis
+[submodule "Analyzer/pitch_formant_extraction"]
+	path = Analyzer/pitch_formant_extraction
+	url = https://github.com/idwira/pitch_formant_extraction
+[submodule "Analyzer/voice-analyzer"]
+	path = Analyzer/voice-analyzer
+	url = https://github.com/jennndol/voice-analyzer
+[submodule "Analyzer/rezonateur"]
+	path = Analyzer/rezonateur
+	url = https://github.com/jpcima/rezonateur
+[submodule "Analyzer/ModalResonators"]
+	path = Analyzer/ModalResonators
+	url = https://github.com/jazamatronic/ModalResonators
+[submodule "Analyzer/STFT"]
+	path = Analyzer/STFT
+	url = https://github.com/kooBH/STFT
+[submodule "Analyzer/AuditoryFilterbanks"]
+	path = Analyzer/AuditoryFilterbanks
+	url = https://github.com/jfsantos/AuditoryFilterbanks
+[submodule "Analyzer/libgammatone"]
+	path = Analyzer/libgammatone
+	url = https://github.com/mmmaat/libgammatone
+[submodule "Analyzer/multiband-filterbank"]
+	path = Analyzer/multiband-filterbank
+	url = https://github.com/raphaelw/multiband-filterbank
+[submodule "Analyzer/pyfilterbank"]
+	path = Analyzer/pyfilterbank
+	url = https://github.com/SiggiGue/pyfilterbank
+[submodule "Analyzer/fractional_octave_filterbank"]
+	path = Analyzer/fractional_octave_filterbank
+	url = https://github.com/matbra/fractional_octave_filterbank
+[submodule "Analyzer/FractionalOctave"]
+	path = Analyzer/FractionalOctave
+	url = https://github.com/cvn-git/FractionalOctave
+[submodule "Analyzer/Third-Octave-Audio-Filter-cpp"]
+	path = Analyzer/Third-Octave-Audio-Filter-cpp
+	url = https://github.com/antoinegaubil/Third-Octave-Audio-Filter-cpp
+[submodule "Analyzer/voclib-cpp"]
+	path = Analyzer/voclib-cpp
+	url = https://github.com/ethindp/voclib-cpp
+[submodule "Analyzer/voclib"]
+	path = Analyzer/voclib
+	url = https://github.com/blastbay/voclib
+[submodule "Analyzer/SPTK"]
+	path = Analyzer/SPTK
+	url = https://github.com/sp-nitech/SPTK
+[submodule "Analyzer/lpc.lv2"]
+	path = Analyzer/lpc.lv2
+	url = https://github.com/knector01/lpc.lv2
+[submodule "Analyzer/ftrack"]
+	path = Analyzer/ftrack
+	url = https://github.com/njaygowda/ftrack
+[submodule "Analyzer/Formants_estimation"]
+	path = Analyzer/Formants_estimation
+	url = https://github.com/Prathiksha-Hegde/Formants_estimation
+[submodule "Analyzer/ffar_v1"]
+	path = Analyzer/ffar_v1
+	url = https://github.com/Leny-Vinceslas/ffar_v1
+[submodule "Analyzer/performant"]
+	path = Analyzer/performant
+	url = https://github.com/babe269/performant
+[submodule "Analyzer/RFA"]
+	path = Analyzer/RFA
+	url = https://github.com/dafyddg/RFA
+[submodule "Analyzer/World"]
+	path = Analyzer/World
+	url = https://github.com/mmorise/World
+[submodule "Analyzer/world-class"]
+	path = Analyzer/world-class
+	url = https://github.com/yukara-ikemiya/world-class
+[submodule "Analyzer/World_DIO"]
+	path = Analyzer/World_DIO
+	url = https://github.com/cpuimage/World_DIO
+[submodule "Analyzer/World_Harvest"]
+	path = Analyzer/World_Harvest
+	url = https://github.com/cpuimage/World_Harvest
+[submodule "Analyzer/Nonlinear-audio-system-identification"]
+	path = Analyzer/Nonlinear-audio-system-identification
+	url = https://github.com/jagger2048/Nonlinear-audio-system-identification
+[submodule "Analyzer/impulseresponder"]
+	path = Analyzer/impulseresponder
+	url = https://github.com/soerenbnoergaard/impulseresponder
+[submodule "Analyzer/jack-ir"]
+	path = Analyzer/jack-ir
+	url = https://github.com/x42/jack-ir
+[submodule "Analyzer/Matlab/NTAnalyzer"]
+	path = Analyzer/Matlab/NTAnalyzer
+	url = https://github.com/IENT/NTAnalyzer
+[submodule "Analyzer/Matlab/ELABorate"]
+	path = Analyzer/Matlab/ELABorate
+	url = https://github.com/NicklasVraa/ELABorate
+[submodule "Analyzer/Matlab/voice-analyzer"]
+	path = Analyzer/Matlab/voice-analyzer
+	url = https://github.com/jennndol/voice-analyzer
+[submodule "Analyzer/Matlab/Spectrum-Analyzer"]
+	path = Analyzer/Matlab/Spectrum-Analyzer
+	url = https://github.com/Omar-Hisham/Spectrum-Analyzer
+[submodule "Convolution/partconv"]
+	path = Convolution/partconv
+	url = https://github.com/ebattenberg/partconv
+[submodule "Convolution/convoLib"]
+	path = Convolution/convoLib
+	url = https://github.com/AntonioEscamilla/convoLib
+[submodule "Transfer/tfp"]
+	path = Transfer/tfp
+	url = https://github.com/TheComet/tfp
+[submodule "Transfer/TransferFunction"]
+	path = Transfer/TransferFunction
+	url = https://github.com/SadZombik/TransferFunction
+[submodule "Transfer/TransferFunctionPlotter"]
+	path = Transfer/TransferFunctionPlotter
+	url = https://github.com/KerryL/TransferFunctionPlotter
+[submodule "Transfer/transfer_function"]
+	path = Transfer/transfer_function
+	url = https://github.com/borodziejciesla/transfer_function
+[submodule "Transfer/Symbolic-Transfer-Function"]
+	path = Transfer/Symbolic-Transfer-Function
+	url = https://github.com/DKT19/Symbolic-Transfer-Function
+[submodule "Transfer/CalcTF"]
+	path = Transfer/CalcTF
+	url = https://github.com/MafuraG/CalcTF
+[submodule "Transfer/KTransFunc"]
+	path = Transfer/KTransFunc
+	url = https://github.com/kikuuwe/KTransFunc
+[submodule "Transfer/Zevaluator"]
+	path = Transfer/Zevaluator
+	url = https://github.com/skrynnyk/Zevaluator
+[submodule "Transfer/tfest"]
+	path = Transfer/tfest
+	url = https://github.com/giuliovv/tfest
+[submodule "Transfer/etfe"]
+	path = Transfer/etfe
+	url = https://github.com/epezent/etfe
+[submodule "Transfer/genac"]
+	path = Transfer/genac
+	url = https://github.com/gokhanettin/genac
+[submodule "Seperate/Zen"]
+	path = Seperate/Zen
+	url = https://github.com/sevagh/Zen
+[submodule "Analyzer/loudgain"]
+	path = Analyzer/loudgain
+	url = https://github.com/ghedo/loudgain
+[submodule "Analyzer/envelope"]
+	path = Analyzer/envelope
+	url = https://github.com/tesserato/envelope

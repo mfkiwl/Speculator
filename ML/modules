@@ -1,0 +1,45 @@
+[submodule "viennacl-dev"]
+	path = viennacl-dev
+	url = https://github.com/viennacl/viennacl-dev
+[submodule "MatX"]
+	path = MatX
+	url = https://github.com/NVIDIA/MatX
+[submodule "cutlass"]
+	path = cutlass
+	url = https://github.com/NVIDIA/cutlass
+[submodule "jitify"]
+	path = jitify
+	url = https://github.com/NVIDIA/jitify
+[submodule "cudnn-frontend"]
+	path = cudnn-frontend
+	url = https://github.com/NVIDIA/cudnn-frontend
+[submodule "XNet"]
+	path = XNet
+	url = https://github.com/lyx-x/XNet
+[submodule "RNN"]
+	path = RNN
+	url = https://github.com/JulianNener/RNN
+[submodule "cudnn_lstm"]
+	path = cudnn_lstm
+	url = https://github.com/li-weihua/cudnn_lstm
+[submodule "SelCNN"]
+	path = SelCNN
+	url = https://github.com/BilgehanSel/SelCNN
+[submodule "hpmoCNN"]
+	path = hpmoCNN
+	url = https://github.com/Gopal-Dahale/hpmoCNN
+[submodule "CNN-cuDNN"]
+	path = CNN-cuDNN
+	url = https://github.com/lkshay/CNN-cuDNN
+[submodule "gpu_cnn"]
+	path = gpu_cnn
+	url = https://github.com/vhall415/gpu_cnn
+[submodule "cudnnxx"]
+	path = cudnnxx
+	url = https://github.com/t-ubukata/cudnnxx
+[submodule "lite-dnn"]
+	path = lite-dnn
+	url = https://github.com/ghostplant/lite-dnn
+[submodule "cudnn_samples_v8"]
+	path = cudnn_samples_v8
+	url = https://github.com/johnpzh/cudnn_samples_v8

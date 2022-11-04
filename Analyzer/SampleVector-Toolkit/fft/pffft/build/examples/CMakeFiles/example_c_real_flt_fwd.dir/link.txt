@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/example_c_real_flt_fwd.dir/example_c_real_flt_fwd.c.o -o example_c_real_flt_fwd  ../libpffft.a -lm 

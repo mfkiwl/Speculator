@@ -1,0 +1,79 @@
+﻿Welcome to FASST @FASST_VERSION@!
+FASST is now installed on your computer at the following location: @CMAKE_INSTALL_PREFIX@
+
+This installation provides three examples to show FASST usage. Example scripts are located in dedicated folders (example1, example2 and example3) in the same folder as this quickstarter file.
+
+This installation provides three examples to show how to use FASST. Example scripts are located in dedicated folders (example1, example2 and example3) in the same folder as this quickstarter file.
+
+Examples overviews:
+Example #1 is an example of FASST source separation script dealing with an instantaneous mixture of 3 tracks (piano, voice and drums). Example #1 script is available for Matlab and for Python.
+Example #2 is an example of FASST source separation script dealing with a simulated 8-channel anechoic mixture of 2 speakers (Example #2 script is available for Matlab only).
+Example #3 is an example of FASST source separation script dealing with a real 8-channel reverberated mixture of 2 speakers (Example #3 script is available for Matlab and Python).
+
+Detailed descriptions of corresponding audio scene and input parameters can be found in dedicated .m and .py file headers.
+
+### How to run an example? ###
+- With your file explorer (or with the terminal) go to the desired example folder
+- Execute the .py script (only available for example #1 and #3) or the .m script (Matlab user)
+
+### PEASS backend ###
+Example #2 can use an optional backend named PEASS (Perceptual Evaluation methods for Audio Source Separation, available at http://bass-db.gforge.inria.fr/peass/PEASS-Software.html) for performance evaluation.
+This backend should have been downloaded, installed and compiled during the FASST installation process. 
+However, this installation step may have failed, in which case you should have received an error status.
+In this case, find below the different error logs and some advice to resolve them.
+
+## ERROR[1] Unable to download PEASS ##
+This error can be caused by :
+    1. An internet connection problem
+    2. A problem while checking PEASS sources and third-parties repositories
+
+To resolve these issues, follow the guidelines below:
+    1. Check your internet connection
+    2. Check you can manually download the zip files provided at:
+        http://bass-db.gforge.inria.fr/peass/PEASS-Software-v2.0.1.zip
+        http://medi.uni-oldenburg.de/download/demo/adaption-loops/adapt_loop.zip
+    3. After steps 1. and 2. have been checked successfully, run again the installation script (see the "How to run PEASS installation script" section below)
+
+## ERROR [2] Can not find Matlab in your PATH ##
+This error can be caused by :
+    1. A problem while calling MATLAB in command line
+
+To resolve this issue, follow the guidelines below:
+    1. Verify that MATLAB is installed and install it if needed. 
+    2. Update your bash_profile file to add the path to your Matlab application. The bash_profile file is a hidden file. one way to modify it is the following :
+        - Open a new terminal;
+        - cd to your home directory
+            > cd ~
+        - Open your bash_profile with textedit (for example):
+            > open -a TextEdit .bash_profile
+        - Add the following line (must be modified to correspond to your configuration):
+            export PATH=“<YOUR_MATLAB_INSTALLATION_DIRECTORY>/bin:$PATH"
+        For instance, the default MATLAB directory for MATLAB 2017a is : /Applications/MATLAB_R2017a.app/
+        - Close all terminals and start a new one (for modification to be taken into account)
+    3. After steps 1. and 2. have been fulfilled successfully, run again the installation script (see the "How to run PEASS installation script" section below)  
+
+## ERROR [3] Problem while compiling mex function(s) ##
+This error can be caused by :
+    1. An exception because you don't have installed Xcode
+    2. A conflict between your Matlab version and your Xcode version
+
+To resolve this issue, follow the guidelines below:
+    1. Check the compatibility between your Matlab version and the supported Xcode version 
+        - Visit: https://fr.mathworks.com/support/sysreq/previous_releases.html
+        - In the "Platform Availability" field, open the pdf file corresponding to your Matlab version
+        - Click on "View general system requirements" at the beginning of the file
+        - Switch to the Mac section and have a look to Xcode requirement.
+    2. Install or update Xcode (or Matlab) to make the compatibility effective
+    3. After steps 1. and 2. have been fulfilled successfully, run again the installation script (see the "How to run PEASS installation script" section below)
+    
+## How to run PEASS installation script ##
+- Open a new terminal;
+- cd to this folder (where this quickstarter is located);
+- Execute the script named install_peass: 
+    > install_peass.sh
+
+### Contact ###
+In order to contact us for any question about this software, send an email to :
+fasst-support@inria.fr 
+
+

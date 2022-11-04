@@ -1,0 +1,9 @@
+*~
+*.pyc
+/build-*
+/build
+/dist
+*.egg*
+.idea/
+**vscode
+/.tox

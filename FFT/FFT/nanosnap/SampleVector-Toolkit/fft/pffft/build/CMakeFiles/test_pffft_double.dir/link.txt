@@ -1,0 +1,1 @@
+/usr/bin/cc -O2 -fPIC -march=native -mavx2 -O3 -DNDEBUG -rdynamic CMakeFiles/test_pffft_double.dir/test_pffft.c.o -o test_pffft_double  libpffft.a -lm 
